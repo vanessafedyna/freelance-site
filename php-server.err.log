@@ -239,3 +239,99 @@
 [Wed Mar 18 15:57:56 2026] [::1]:10345 Accepted
 [Wed Mar 18 15:57:56 2026] [::1]:10345 [200]: GET /about.php
 [Wed Mar 18 15:57:56 2026] [::1]:10345 Closing
+[Wed Mar 18 16:01:51 2026] [::1]:18059 Accepted
+[Wed Mar 18 16:01:51 2026] [::1]:18059 [200]: GET /index.php
+[Wed Mar 18 16:01:51 2026] [::1]:18059 Closing
+[Wed Mar 18 16:01:51 2026] [::1]:18060 Accepted
+[Wed Mar 18 16:01:51 2026] [::1]:18060 [200]: GET /services.php
+[Wed Mar 18 16:01:51 2026] [::1]:18060 Closing
+[Wed Mar 18 16:01:51 2026] [::1]:18061 Accepted
+[Wed Mar 18 16:01:51 2026] [::1]:18061 [200]: GET /portfolio.php
+[Wed Mar 18 16:01:51 2026] [::1]:18061 Closing
+[Wed Mar 18 16:01:51 2026] [::1]:18062 Accepted
+[Wed Mar 18 16:01:51 2026] [::1]:18062 [200]: GET /about.php
+[Wed Mar 18 16:01:51 2026] [::1]:18062 Closing
+[Wed Mar 18 16:01:51 2026] [::1]:18063 Accepted
+[Wed Mar 18 16:01:51 2026] [::1]:18063 [200]: GET /contact.php
+[Wed Mar 18 16:01:51 2026] [::1]:18063 Closing
+[Wed Mar 18 16:02:05 2026] [::1]:19596 Accepted
+[Wed Mar 18 16:02:05 2026] [::1]:19596 [200]: GET /index.php
+[Wed Mar 18 16:02:05 2026] [::1]:19596 Closing
+[Wed Mar 18 16:02:05 2026] [::1]:31781 Accepted
+[Wed Mar 18 16:02:05 2026] [::1]:50202 Accepted
+[Wed Mar 18 16:02:05 2026] [::1]:31781 [200]: GET /assets/css/style.css
+[Wed Mar 18 16:02:05 2026] [::1]:50202 [200]: GET /assets/js/script.js
+[Wed Mar 18 16:02:05 2026] [::1]:31781 Closing
+[Wed Mar 18 16:02:05 2026] [::1]:50202 Closing
+[Wed Mar 18 16:02:07 2026] [::1]:3203 Accepted
+[Wed Mar 18 16:02:07 2026] [::1]:3203 [200]: GET /contact.php
+[Wed Mar 18 16:02:07 2026] [::1]:3203 Closing
+[Wed Mar 18 16:02:07 2026] [::1]:34334 Accepted
+[Wed Mar 18 16:02:07 2026] [::1]:34334 [200]: GET /assets/css/style.css
+[Wed Mar 18 16:02:07 2026] [::1]:39865 Accepted
+[Wed Mar 18 16:02:07 2026] [::1]:39865 [200]: GET /assets/js/script.js
+[Wed Mar 18 16:02:07 2026] [::1]:34334 Closing
+[Wed Mar 18 16:02:07 2026] [::1]:39865 Closing
+[Wed Mar 18 16:02:13 2026] [::1]:21592 Accepted
+[Wed Mar 18 16:02:13 2026] [::1]:21592 [200]: GET /about.php
+[Wed Mar 18 16:02:13 2026] [::1]:21592 Closing
+[Wed Mar 18 16:02:13 2026] [::1]:26972 Accepted
+[Wed Mar 18 16:02:13 2026] [::1]:51721 Accepted
+[Wed Mar 18 16:02:13 2026] [::1]:26972 [200]: GET /assets/css/style.css
+[Wed Mar 18 16:02:13 2026] [::1]:51721 [200]: GET /assets/js/script.js
+[Wed Mar 18 16:02:13 2026] [::1]:26972 Closing
+[Wed Mar 18 16:02:13 2026] [::1]:51721 Closing
+[Wed Mar 18 16:10:20 2026] [::1]:4816 Accepted
+[Wed Mar 18 16:10:20 2026] [::1]:4816 [200]: GET /index.php
+[Wed Mar 18 16:10:20 2026] [::1]:4816 Closing
+[Wed Mar 18 16:10:20 2026] [::1]:4817 Accepted
+[Wed Mar 18 16:10:20 2026] [::1]:4817 [200]: GET /services.php
+[Wed Mar 18 16:10:20 2026] [::1]:4817 Closing
+[Wed Mar 18 16:10:20 2026] [::1]:4819 Accepted
+[Wed Mar 18 16:10:20 2026] [::1]:4819 [200]: GET /portfolio.php
+[Wed Mar 18 16:10:20 2026] [::1]:4819 Closing
+[Wed Mar 18 16:10:20 2026] [::1]:4820 Accepted
+[Wed Mar 18 16:10:20 2026] [::1]:4820 [200]: GET /about.php
+[Wed Mar 18 16:10:20 2026] [::1]:4820 Closing
+[Wed Mar 18 16:10:20 2026] [::1]:4821 Accepted
+[Wed Mar 18 16:10:20 2026] [::1]:4821 [200]: GET /contact.php
+[Wed Mar 18 16:10:20 2026] [::1]:4821 Closing
+[Wed Mar 18 16:10:27 2026] [::1]:4825 Accepted
+[Wed Mar 18 16:10:27 2026] [::1]:4825 [200]: GET /about.php
+[Wed Mar 18 16:10:27 2026] [::1]:4825 Closing
+[Wed Mar 18 16:10:42 2026] [::1]:4831 Accepted
+[Wed Mar 18 16:10:42 2026] [::1]:4831 [200]: GET /contact.php
+[Wed Mar 18 16:10:42 2026] [::1]:4831 Closing
+[Wed Mar 18 16:11:00 2026] [::1]:4837 Accepted
+[Wed Mar 18 16:11:00 2026] [::1]:4837 [200]: GET /index.php
+[Wed Mar 18 16:11:00 2026] [::1]:4837 Closing
+[Wed Mar 18 16:11:01 2026] [::1]:4840 Accepted
+[Wed Mar 18 16:11:01 2026] [::1]:4840 [200]: GET /index.php
+[Wed Mar 18 16:11:01 2026] [::1]:4840 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:42683 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:42683 [200]: GET /index.php
+[Wed Mar 18 16:11:30 2026] [::1]:42683 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:17939 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:18703 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:17939 [200]: GET /assets/css/style.css
+[Wed Mar 18 16:11:30 2026] [::1]:18703 [200]: GET /assets/js/script.js
+[Wed Mar 18 16:11:30 2026] [::1]:17939 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:18703 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:63971 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:63971 [404]: GET /assets/images/favicon.ico - No such file or directory
+[Wed Mar 18 16:11:30 2026] [::1]:63971 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:58026 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:58026 [404]: GET /assets/images/favicon-32x32.png - No such file or directory
+[Wed Mar 18 16:11:30 2026] [::1]:58026 Closing
+[Wed Mar 18 16:11:30 2026] [::1]:27036 Accepted
+[Wed Mar 18 16:11:30 2026] [::1]:27036 [404]: GET /assets/images/favicon-16x16.png - No such file or directory
+[Wed Mar 18 16:11:30 2026] [::1]:27036 Closing
+[Wed Mar 18 16:11:39 2026] [::1]:55343 Accepted
+[Wed Mar 18 16:11:39 2026] [::1]:55343 [200]: GET /portfolio.php
+[Wed Mar 18 16:11:39 2026] [::1]:55343 Closing
+[Wed Mar 18 16:11:39 2026] [::1]:11722 Accepted
+[Wed Mar 18 16:11:39 2026] [::1]:10069 Accepted
+[Wed Mar 18 16:11:39 2026] [::1]:11722 [200]: GET /assets/css/style.css
+[Wed Mar 18 16:11:39 2026] [::1]:10069 [200]: GET /assets/js/script.js
+[Wed Mar 18 16:11:39 2026] [::1]:11722 Closing
+[Wed Mar 18 16:11:39 2026] [::1]:10069 Closing
