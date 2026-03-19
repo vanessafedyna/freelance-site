@@ -18,7 +18,9 @@ include('includes/header.php');
                 J'accompagne les petites entreprises pour renforcer leur présence en ligne,
                 clarifier leur image de marque et automatiser les échanges clients.
             </p>
-            <a href="contact.php" class="btn btn-primary">Demander un devis</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+            </a>
         </div>
     </section>
 
@@ -40,7 +42,9 @@ include('includes/header.php');
                     <p class="offer-benefit">
                         Bénéfice client : vous gagnez en crédibilité et facilitez la prise de contact.
                     </p>
-                    <a href="contact.php" class="btn btn-secondary">Demander ce service</a>
+                    <a href="contact.php" class="btn btn-secondary">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander ce service</span></span></span>
+                    </a>
                 </article>
 
                 <article class="service-offer-card">
@@ -57,7 +61,9 @@ include('includes/header.php');
                     <p class="offer-benefit">
                         Bénéfice client : une image claire, cohérente et mémorable sur tous vos supports.
                     </p>
-                    <a href="contact.php" class="btn btn-secondary">Demander ce service</a>
+                    <a href="contact.php" class="btn btn-secondary">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander ce service</span></span></span>
+                    </a>
                 </article>
 
                 <article class="service-offer-card">
@@ -74,7 +80,9 @@ include('includes/header.php');
                     <p class="offer-benefit">
                         Bénéfice client : vous optimisez votre temps tout en améliorant l'expérience client.
                     </p>
-                    <a href="contact.php" class="btn btn-secondary">Demander ce service</a>
+                    <a href="contact.php" class="btn btn-secondary">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander ce service</span></span></span>
+                    </a>
                 </article>
             </div>
         </div>
@@ -117,7 +125,9 @@ include('includes/header.php');
             <p>
                 Parlons de vos besoins et recevez une proposition claire adaptée à votre activité.
             </p>
-            <a href="contact.php" class="btn btn-primary">Me contacter</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+            </a>
         </div>
     </section>
 </main>

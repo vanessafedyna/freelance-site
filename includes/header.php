@@ -1,4 +1,8 @@
 <?php
+if (!headers_sent()) {
+    header('Content-Type: text/html; charset=UTF-8');
+}
+
 $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 $site_name = isset($site_name) ? (string)$site_name : 'Freelance Dev Studio';
 

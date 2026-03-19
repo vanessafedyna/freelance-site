@@ -18,7 +18,9 @@ include('includes/header.php');
                 Ces projets reflètent mon approche en web design, branding et solutions digitales
                 pour les petites entreprises au Canada.
             </p>
-            <a href="contact.php" class="btn btn-primary">Demander un devis</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+            </a>
         </div>
     </section>
 
@@ -120,7 +122,9 @@ include('includes/header.php');
                 Que vous ayez besoin d'un site web, d'un logo ou d'une automatisation, je vous aide
                 à transformer votre idée en solution concrète.
             </p>
-            <a href="contact.php" class="btn btn-primary">Demander un devis</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+            </a>
         </div>
     </section>
 </main>

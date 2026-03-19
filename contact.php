@@ -148,7 +148,9 @@ include('includes/header.php');
                         <?php endif; ?>
                     </div>
 
-                    <button type="submit" class="btn btn-primary contact-submit">Envoyer ma demande</button>
+                    <button type="submit" class="btn btn-primary contact-submit">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Envoyer ma demande</span></span></span>
+                    </button>
                 </form>
             </article>
 

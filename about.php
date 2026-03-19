@@ -18,7 +18,9 @@ include('includes/header.php');
                 Je suis développeur freelance et j'accompagne les petites entreprises à construire
                 une présence en ligne solide, professionnelle et utile pour leur croissance.
             </p>
-            <a href="contact.php" class="btn btn-primary">Me contacter</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+            </a>
         </div>
     </section>
 
@@ -115,7 +117,9 @@ include('includes/header.php');
                 Vous avez une idée de site web, de logo ou d'automatisation ? Je vous aide à la cadrer
                 puis à la transformer en solution professionnelle.
             </p>
-            <a href="contact.php" class="btn btn-primary">Me contacter</a>
+            <a href="contact.php" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+            </a>
         </div>
     </section>
 </main>

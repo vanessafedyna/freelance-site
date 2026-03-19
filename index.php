@@ -18,8 +18,12 @@ include __DIR__ . '/includes/header.php';
                     et orientées résultats.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Demander un devis</a>
-                    <a href="#services" class="btn btn-secondary">Voir mes services</a>
+                    <a href="#contact" class="btn btn-primary">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Voir mes services</span></span></span>
+                    </a>
                 </div>
             </div>
             <aside class="hero-panel" aria-label="Aperçu des offres">
@@ -111,7 +115,9 @@ include __DIR__ . '/includes/header.php';
                 Discutons de vos objectifs et construisons une solution web, branding ou chatbot
                 réellement utile pour votre activité.
             </p>
-            <a href="mailto:you@example.com" class="btn btn-primary">Me contacter</a>
+            <a href="mailto:you@example.com" class="btn btn-primary">
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+            </a>
         </div>
     </section>
 </main>
