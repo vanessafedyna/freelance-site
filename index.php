@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$page_title = 'Développeur freelance au Canada | Interface web narrative et conversion | Freelance Dev Studio';
+$page_title = 'Développeur freelance au Canada | Interface web narrative et conversion | MONATECH';
 $page_description = 'Je conçois des expériences web narratives pour petites entreprises au Canada : site web, logo et automatisation chatbot orientés conversion.';
 $page_path = 'index.php';
 

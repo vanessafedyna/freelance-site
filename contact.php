@@ -12,7 +12,7 @@ function contact_escape(string $value): string
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
-$page_title = 'Contact freelance | Demande de devis web au Canada | Freelance Dev Studio';
+$page_title = 'Contact freelance | Demande de devis web au Canada | MONATECH';
 $page_description = 'Contactez votre développeur freelance pour une demande de devis : site web, logo ou chatbot pour votre projet au Canada.';
 $page_keywords = 'contact freelance, demande de devis, projet web Canada, site web, logo, chatbot';
 $page_path = 'contact.php';

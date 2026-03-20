@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-$page_title = 'À propos | Création de sites web pour petites entreprises | Freelance Dev Studio';
-$page_description = 'Découvrez l’approche de Freelance Dev Studio : création de sites web clairs, identité visuelle simple et solutions web adaptées aux petites entreprises.';
+$page_title = 'À propos | Création de sites web pour petites entreprises | MONATECH';
+$page_description = 'Découvrez l’approche de MONATECH : création de sites web clairs, identité visuelle simple et solutions web adaptées aux petites entreprises.';
 $page_keywords = 'à propos freelance web, création site web, petites entreprises, identité visuelle, PHP Laravel';
 $page_path = 'about.php';
 
@@ -12,7 +12,7 @@ include('includes/header.php');
 <main class="about-page">
     <section class="section about-hero">
         <div class="container about-hero-inner">
-            <p class="hero-badge">À propos de Freelance Dev Studio</p>
+            <p class="hero-badge">À propos de MONATECH</p>
             <h1>Je conçois des sites web clairs, utiles et adaptés aux petites entreprises.</h1>
             <p class="about-intro">
                 Mon objectif est de créer des solutions web simples, professionnelles et faciles à faire évoluer, avec une approche claire du besoin jusqu’à la mise en ligne.

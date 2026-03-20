@@ -11,9 +11,9 @@ if ($currentPage === '' || $currentPage === '/' || $currentPage === '\\') {
     $currentPage = 'index.php';
 }
 
-$site_name = isset($site_name) ? (string) $site_name : 'Freelance Dev Studio';
+$site_name = isset($site_name) ? (string) $site_name : 'MONATECH STUDIO';
 $asset_base = isset($asset_base) ? rtrim((string) $asset_base, '/') : '';
-$brand_mark = isset($brand_mark) ? strtoupper(trim((string) $brand_mark)) : 'FDS';
+$brand_mark = isset($brand_mark) ? strtoupper(trim((string) $brand_mark)) : 'MT';
 
 $page_title = isset($page_title)
     ? (string) $page_title
@@ -42,6 +42,8 @@ if (!function_exists('site_url')) {
     }
 }
 
+$brand_logo = isset($brand_logo) ? (string) $brand_logo : site_url('/assets/images/logo-transparent.png', $asset_base);
+
 $navItems = [
     ['label' => 'Accueil', 'href' => site_url('/index.php', $asset_base), 'page' => 'index.php'],
     ['label' => 'Services', 'href' => site_url('/services.php', $asset_base), 'page' => 'services.php'],
@@ -67,6 +69,7 @@ $navItems = [
     <meta property="og:site_name" content="<?php echo head_escape($site_name); ?>">
 
     <!-- Placez vos icônes dans assets/images/ -->
+    <link rel="icon" type="image/png" href="<?php echo head_escape($brand_logo); ?>">
     <link rel="icon" href="<?php echo head_escape(site_url('/assets/images/favicon.ico', $asset_base)); ?>" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo head_escape(site_url('/assets/images/favicon-32x32.png', $asset_base)); ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo head_escape(site_url('/assets/images/favicon-16x16.png', $asset_base)); ?>">
@@ -78,7 +81,9 @@ $navItems = [
     <header class="site-header" data-js="premium-nav">
         <div class="container header-inner">
             <a class="brand" href="<?php echo head_escape(site_url('/index.php', $asset_base)); ?>" aria-label="Accueil <?php echo head_escape($site_name); ?>">
-                <span class="brand-mark" aria-hidden="true"><?php echo head_escape($brand_mark); ?></span>
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="<?php echo head_escape($brand_logo); ?>" alt="Logo <?php echo head_escape($site_name); ?>">
+                </span>
                 <span class="brand-text"><?php echo head_escape($site_name); ?></span>
             </a>
 

@@ -18,7 +18,7 @@ try {
     $projects = [];
 }
 
-$page_title = 'Portfolio freelance | Projets web, identité visuelle et automatisations | Freelance Dev Studio';
+$page_title = 'Portfolio freelance | Projets web, identité visuelle et automatisations | MONATECH';
 $page_description = 'Sélection de projets web, identité visuelle simple et automatisations pour petites entreprises. Exemples concrets de réalisations, démos et concepts.';
 $page_keywords = 'portfolio freelance, projets web, identité visuelle, automatisations, petites entreprises';
 $page_path = 'portfolio.php';

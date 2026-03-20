@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 18 mars 2026 à 21:25
+-- Généré le : ven. 20 mars 2026 à 21:06
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -185,6 +185,40 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 CREATE TABLE `projects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `project_type` varchar(50) NOT NULL DEFAULT 'demo',
+  `project_year` int(11) NOT NULL,
+  `short_description` text NOT NULL,
+  `result_text` text NOT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `link_url` varchar(255) DEFAULT NULL,
+  `link_label` varchar(100) DEFAULT NULL,
+  `is_published` tinyint(1) NOT NULL DEFAULT 1,
+  `display_order` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `projects`
+--
+
+INSERT INTO `projects` (`id`, `title`, `slug`, `category`, `project_type`, `project_year`, `short_description`, `result_text`, `thumbnail`, `link_url`, `link_label`, `is_published`, `display_order`, `created_at`, `updated_at`) VALUES
+(1, 'Site Vitrine Restaurant', 'site-vitrine-restaurant', 'site web', 'demo', 2026, 'Site Laravel + JS pour un restaurant local', 'Résultat à compléter', NULL, 'https://exemple.com', 'Parler d’un projet similaire', 1, 0, '2026-02-19 18:14:42', '2026-02-19 18:24:25'),
+(2, 'Site vitrine pour cabinet comptable', 'site-vitrine-cabinet-comptable', 'site web', 'client', 2026, 'Conception d’un site vitrine clair pour présenter les services, rassurer les prospects et simplifier la prise de contact.', 'Hausse des demandes qualifiées via le formulaire de contact.', NULL, NULL, 'Parler d’un projet similaire', 1, 10, '2026-03-20 11:07:25', '2026-03-20 11:07:25'),
+(3, 'Identité visuelle pour studio local', 'identite-visuelle-studio-local', 'identité visuelle', 'concept', 2026, 'Création d’une identité visuelle simple avec logo, palette et repères graphiques pour harmoniser la présence en ligne.', 'Image de marque plus cohérente sur le site et les supports digitaux.', NULL, NULL, 'Parler d’un projet similaire', 1, 20, '2026-03-20 11:07:25', '2026-03-20 11:07:25'),
+(4, 'Automatisation du tri des demandes', 'automatisation-tri-demandes', 'automatisation', 'demo', 2026, 'Mise en place d’un flux d’automatisation pour qualifier les demandes entrantes et orienter rapidement vers le bon canal.', 'Réduction du temps passé sur les demandes répétitives et suivi plus fluide.', NULL, NULL, 'Parler d’un projet similaire', 1, 30, '2026-03-20 11:07:25', '2026-03-20 11:07:25');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `projects_old_20260320`
+--
+
+CREATE TABLE `projects_old_20260320` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -197,10 +231,10 @@ CREATE TABLE `projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `projects`
+-- Déchargement des données de la table `projects_old_20260320`
 --
 
-INSERT INTO `projects` (`id`, `title`, `slug`, `description`, `cover_image`, `tech_stack`, `project_url`, `created_at`, `updated_at`) VALUES
+INSERT INTO `projects_old_20260320` (`id`, `title`, `slug`, `description`, `cover_image`, `tech_stack`, `project_url`, `created_at`, `updated_at`) VALUES
 (1, 'Site Vitrine Restaurant', 'site-vitrine-restaurant', 'Site Laravel + JS pour un restaurant local', NULL, '[\"Laravel\",\"MySQL\",\"JS\"]', 'https://exemple.com', '2026-02-19 23:14:42', '2026-02-19 23:24:25');
 
 -- --------------------------------------------------------
@@ -330,6 +364,13 @@ ALTER TABLE `password_reset_tokens`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Index pour la table `projects_old_20260320`
+--
+ALTER TABLE `projects_old_20260320`
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `projects_slug_unique` (`slug`);
 
 --
@@ -385,6 +426,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT pour la table `projects`
 --
 ALTER TABLE `projects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `projects_old_20260320`
+--
+ALTER TABLE `projects_old_20260320`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --

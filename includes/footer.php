@@ -1,7 +1,7 @@
 <?php
-$footer_site_name = isset($site_name) ? (string) $site_name : 'Freelance Dev Studio';
+$footer_site_name = isset($site_name) ? (string) $site_name : 'MONATECH STUDIO';
 $footer_asset_base = isset($asset_base) ? rtrim((string) $asset_base, '/') : '';
-$footer_brand_mark = isset($brand_mark) ? strtoupper(trim((string) $brand_mark)) : 'FDS';
+$footer_brand_mark = isset($brand_mark) ? strtoupper(trim((string) $brand_mark)) : 'MT';
 
 if (!function_exists('footer_escape')) {
     function footer_escape(string $value): string
@@ -17,13 +17,18 @@ $footer_url = static function (string $path) use ($footer_asset_base): string {
 
     return ($footer_asset_base === '' ? '' : $footer_asset_base) . '/' . ltrim($path, '/');
 };
+$footer_brand_logo = isset($brand_logo)
+    ? (string) $brand_logo
+    : $footer_url('/assets/images/logo-transparent.png');
 ?>
     <footer class="site-footer" aria-label="Pied de page">
         <div class="container footer-shell">
             <div class="footer-grid">
                 <section class="footer-col footer-branding" aria-label="Présentation">
                     <a class="footer-brand" href="<?php echo footer_escape($footer_url('/index.php')); ?>" aria-label="Accueil <?php echo footer_escape($footer_site_name); ?>">
-                        <span class="footer-brand-mark" aria-hidden="true"><?php echo footer_escape($footer_brand_mark); ?></span>
+                        <span class="footer-brand-mark" aria-hidden="true">
+                            <img src="<?php echo footer_escape($footer_brand_logo); ?>" alt="Logo <?php echo footer_escape($footer_site_name); ?>">
+                        </span>
                         <span class="footer-brand-text"><?php echo footer_escape($footer_site_name); ?></span>
                     </a>
                     <p class="footer-tagline">

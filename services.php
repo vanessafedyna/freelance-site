@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$page_title = 'Services web freelance | Sites, logos et automatisation | Freelance Dev Studio';
+$page_title = 'Services web freelance | Sites, logos et automatisation | MONATECH';
 $page_description = 'Services web freelance pour petites entreprises au Canada : création de site web, création de logo et chatbots avec automatisation simple.';
 $page_keywords = 'services web freelance, création de site web, création de logo, automatisation, Canada';
 $page_path = 'services.php';
