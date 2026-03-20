@@ -27,7 +27,7 @@ $footer_url = static function (string $path) use ($footer_asset_base): string {
                         <span class="footer-brand-text"><?php echo footer_escape($footer_site_name); ?></span>
                     </a>
                     <p class="footer-tagline">
-                        Création de sites web, branding et automatisations pour les petites entreprises.
+                        Création de sites web, identité visuelle simple et automatisations pour les petites entreprises.
                     </p>
                 </section>
 
@@ -46,14 +46,14 @@ $footer_url = static function (string $path) use ($footer_asset_base): string {
                     <h2 class="footer-title">Services</h2>
                     <ul class="footer-links">
                         <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Création de site web</a></li>
-                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Logo / identité visuelle</a></li>
-                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Chatbot / automatisation</a></li>
+                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Identité visuelle simple</a></li>
+                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Automatisations simples</a></li>
                     </ul>
                 </section>
 
                 <section class="footer-col footer-contact" aria-label="Contact">
                     <h2 class="footer-title">Contact</h2>
-                    <p class="footer-contact-line"><a href="mailto:you@example.com">you@example.com</a></p>
+                    <p class="footer-contact-line"><a href="mailto:votre-email@exemple.com">votre-email@exemple.com</a></p>
                     <a href="<?php echo footer_escape($footer_url('/contact.php')); ?>" class="footer-cta">Discuter de votre projet</a>
                     <p class="footer-response">Réponse sous 24h ouvrées.</p>
                 </section>

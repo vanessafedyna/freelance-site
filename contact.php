@@ -23,11 +23,10 @@ include('includes/header.php');
 <main class="contact-page">
     <section class="section contact-hero">
         <div class="container">
-            <p class="hero-badge">Contact freelance</p>
-            <h1 class="contact-title">Parlons de votre projet digital</h1>
+            <p class="hero-badge">Demande de contact</p>
+            <h1 class="contact-title">Parlons du site web dont votre entreprise a besoin.</h1>
             <p class="contact-intro">
-                Vous avez besoin d'un site web, d'un logo ou d'une solution de chatbot automatisée ?
-                Décrivez votre besoin et je vous reviens avec une proposition claire.
+                Décrivez votre projet et vos priorités. Je vous réponds avec une proposition claire, adaptée à votre activité et à vos besoins.
             </p>
         </div>
     </section>
@@ -36,7 +35,7 @@ include('includes/header.php');
         <div class="container contact-layout">
             <article class="contact-form-card">
                 <h2>Envoyer une demande</h2>
-                <p class="contact-note">Réponse sous 24 à 48 heures selon la demande.</p>
+                <p class="contact-note">Réponse sous 24 à 48 heures ouvrées selon la demande.</p>
 
                 <?php if ($formState['success'] !== ''): ?>
                     <div class="form-alert form-alert-success" role="status">
@@ -157,16 +156,15 @@ include('includes/header.php');
             <aside class="contact-side-card" aria-label="Informations de contact">
                 <h2>Informations utiles</h2>
                 <p>
-                    Je travaille avec des indépendants, artisans et petites entreprises qui souhaitent
-                    améliorer leur présence en ligne.
+                    J’accompagne les petites entreprises qui souhaitent clarifier leur présence en ligne et mettre en place un site web plus utile à leur activité.
                 </p>
                 <ul class="contact-details">
-                    <li><strong>Email :</strong> <a href="mailto:you@example.com">you@example.com</a></li>
-                    <li><strong>Services :</strong> Sites web, logos, chatbots et automatisation</li>
+                    <li><strong>Email :</strong> <a href="mailto:votre-email@exemple.com">votre-email@exemple.com</a></li>
+                    <li><strong>Services :</strong> Sites web, identité visuelle simple, automatisations simples</li>
                     <li><strong>Disponibilité :</strong> Lundi au vendredi</li>
                 </ul>
                 <p class="contact-side-note">
-                    Chaque demande reçoit une réponse personnalisée avec une estimation claire des délais.
+                    Chaque demande reçoit une réponse personnalisée avec une estimation claire du périmètre, des délais et du budget.
                 </p>
             </aside>
         </div>

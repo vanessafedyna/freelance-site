@@ -1,208 +1,211 @@
 <?php
 declare(strict_types=1);
 
-$page_title = 'Developpeur freelance au Canada | Site web performant | Freelance Dev Studio';
-$page_description = 'Je concois des sites web professionnels pour petites entreprises : creation, refonte, optimisation et accompagnement.';
+$page_title = 'Développeur freelance au Canada | Interface web narrative et conversion | Freelance Dev Studio';
+$page_description = 'Je conçois des expériences web narratives pour petites entreprises au Canada : site web, logo et automatisation chatbot orientés conversion.';
 $page_path = 'index.php';
-
-$contact_form_data = [
-    'name' => '',
-    'email' => '',
-    'subject' => '',
-    'message' => '',
-];
-$contact_feedback = '';
-$contact_feedback_type = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form']) && trim((string)($_POST['website'] ?? '')) === '') {
-    $contact_form_data['name'] = trim((string)($_POST['name'] ?? ''));
-    $contact_form_data['email'] = trim((string)($_POST['email'] ?? ''));
-    $contact_form_data['subject'] = trim((string)($_POST['subject'] ?? ''));
-    $contact_form_data['message'] = trim((string)($_POST['message'] ?? ''));
-
-    $safe_name = preg_replace('/[\r\n]+/', ' ', $contact_form_data['name']) ?? '';
-    $safe_email = filter_var($contact_form_data['email'], FILTER_SANITIZE_EMAIL) ?: '';
-    $safe_subject = preg_replace('/[\r\n]+/', ' ', $contact_form_data['subject']) ?? '';
-    $safe_message = str_replace("\0", '', $contact_form_data['message']);
-
-    $all_fields_filled = $safe_name !== '' && $safe_email !== '' && $safe_subject !== '' && $safe_message !== '';
-    $email_is_valid = filter_var($safe_email, FILTER_VALIDATE_EMAIL) !== false;
-
-    if (!$all_fields_filled) {
-        $contact_feedback = 'Veuillez remplir tous les champs.';
-        $contact_feedback_type = 'error';
-    } elseif (!$email_is_valid) {
-        $contact_feedback = 'Veuillez entrer une adresse email valide.';
-        $contact_feedback_type = 'error';
-    } else {
-        $to = 'votre.email@exemple.com';
-        $mail_subject = 'Nouveau message contact : ' . $safe_subject;
-        $mail_body = "Nom: {$safe_name}\n";
-        $mail_body .= "Email: {$safe_email}\n";
-        $mail_body .= "Sujet: {$safe_subject}\n\n";
-        $mail_body .= "Message:\n{$safe_message}\n";
-
-        $headers = "From: Site Freelance <contact@tonsite.com>\r\n";
-        $headers .= "Reply-To: {$safe_email}\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-        if (mail($to, $mail_subject, $mail_body, $headers)) {
-            $contact_feedback = 'Votre message a ete envoye avec succes.';
-            $contact_feedback_type = 'success';
-            $contact_form_data = [
-                'name' => '',
-                'email' => '',
-                'subject' => '',
-                'message' => '',
-            ];
-        } else {
-            $contact_feedback = 'Une erreur est survenue lors de l envoi. Merci de reessayer.';
-            $contact_feedback_type = 'error';
-        }
-    }
-}
 
 include __DIR__ . '/includes/header.php';
 ?>
 
-<main class="home-page">
-    <section id="hero" class="section home-hero">
+<main class="narrative-home">
+    <section id="home" class="story-hero">
         <div class="container">
-            <p class="home-hero-intro">Developpeuse freelance</p>
-            <h1>Un site web clair et performant pour attirer plus de clients.</h1>
-            <p class="home-hero-text">
-                Je conçois des sites professionnels pour independants et petites entreprises, avec un objectif simple: convertir plus de visiteurs en demandes concretes.
-            </p>
-            <div class="home-hero-actions">
-                <a href="#contact" class="home-btn home-btn-primary">Demander un devis</a>
-                <a href="#services" class="home-btn home-btn-secondary">Voir mes services</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section home-services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <p class="section-intro">Des solutions web simples, efficaces et adaptees a vos objectifs.</p>
-            <div class="home-grid home-grid-3">
-                <article class="home-card">
-                    <h3>Creation de site web</h3>
-                    <p>Site vitrine ou site professionnel sur mesure, rapide, responsive et oriente conversion.</p>
-                </article>
-                <article class="home-card">
-                    <h3>Refonte de site</h3>
-                    <p>Modernisation de votre site actuel pour ameliorer votre image, votre message et vos resultats.</p>
-                </article>
-                <article class="home-card">
-                    <h3>Optimisation performance &amp; SEO</h3>
-                    <p>Amelioration de la vitesse, de la structure technique et des bases SEO pour gagner en visibilite.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <?php
-    require_once __DIR__ . '/config/database.php';
-
-    $projects = [];
-    $projects_connection_failed = false;
-
-    $pdo = getDatabaseConnection();
-    if ($pdo === null) {
-        $projects_connection_failed = true;
-    } else {
-        try {
-            $stmt = $pdo->query('SELECT * FROM projects ORDER BY id DESC');
-            $projects = $stmt->fetchAll();
-        } catch (Throwable $exception) {
-            $projects_connection_failed = true;
-        }
-    }
-    ?>
-    <section id="portfolio" class="section home-portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-            <p class="section-intro">Quelques projets recents realises pour des entreprises et independants.</p>
-
-            <?php if ($projects_connection_failed): ?>
-                <p class="home-feedback">Impossible de charger les projets pour le moment.</p>
-            <?php elseif (empty($projects)): ?>
-                <p class="home-feedback">Les projets seront ajoutes prochainement.</p>
-            <?php else: ?>
-                <div class="home-grid home-grid-3">
-                    <?php foreach ($projects as $project): ?>
-                        <article class="home-card">
-                            <h3><?= htmlspecialchars((string)($project['title'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h3>
-                            <p><?= htmlspecialchars((string)($project['description'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
-                            <p class="home-tech"><?= htmlspecialchars((string)($project['technologies'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
-                            <a href="<?= htmlspecialchars((string)($project['project_url'] ?? '#'), ENT_QUOTES, 'UTF-8') ?>" class="home-link" target="_blank" rel="noopener noreferrer">Voir le projet</a>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    </section>
-
-    <section id="about" class="section home-about">
-        <div class="container">
-            <h2 class="section-title">A propos</h2>
-            <p class="section-intro">Je travaille avec des entrepreneurs qui veulent un site utile, fiable et rentable.</p>
-            <div class="home-grid home-grid-2">
-                <div class="home-card">
-                    <p>
-                        Je suis developpeuse freelance, specialisee dans la creation et l'amelioration de sites web pour petites entreprises.
-                        Mon approche est simple: clarifier votre offre, faciliter la prise de contact et renforcer votre credibilite en ligne.
+            <div class="story-hero-grid">
+                <div class="story-hero-copy" data-reveal>
+                    <p class="story-step">Étape 1 · La promesse</p>
+                    <p class="story-kicker">Création de site web pour petites entreprises</p>
+                    <h1>Je crée des sites web clairs et efficaces pour attirer plus de clients.</h1>
+                    <p class="story-lead">
+                        J’aide les petites entreprises à clarifier leur présence en ligne avec un site web professionnel, une image cohérente et des automatisations simples.
                     </p>
+                    <div class="story-actions">
+                        <a href="/contact.php" class="btn btn-primary">
+                            <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+                        </a>
+                        <a href="#solution" class="btn btn-secondary">
+                            <span class="button-outer"><span class="button-inner"><span class="button-text">Découvrir le parcours</span></span></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="home-card">
-                    <h3>Points forts</h3>
-                    <ul class="home-list">
-                        <li>Sites rapides et optimises</li>
-                        <li>Design clair et moderne</li>
-                        <li>Accompagnement personnalise</li>
+
+                <aside class="story-hero-aside" data-reveal data-parallax data-speed="0.05" aria-label="Enjeux clients fréquents">
+                    <p class="story-panel-title">Le constat terrain</p>
+                    <ul>
+                        <li>Un site qui informe, mais ne convainc pas.</li>
+                        <li>Une image de marque qui manque de cohérence.</li>
+                        <li>Des demandes clients répétitives qui ralentissent votre équipe.</li>
                     </ul>
-                </div>
+                    <p class="story-panel-note">
+                        Mon rôle : rendre votre présence en ligne plus claire, cohérente et efficace.
+                    </p>
+                </aside>
+            </div>
+
+            <div class="story-scroll-indicator" data-reveal>
+                <span aria-hidden="true"></span>
+                <p>Faire défiler pour suivre le parcours</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section home-contact">
+    <section id="probleme" class="story-problem">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-intro">Parlez-moi de votre projet, je vous reponds rapidement avec une proposition claire.</p>
+            <div class="story-section-head" data-reveal>
+                <p class="story-step">Étape 2 · Le problème</p>
+                <h2>Vous investissez en ligne, mais le message reste flou.</h2>
+            </div>
 
-            <?php if ($contact_feedback !== ''): ?>
-                <p class="contact-home-feedback <?= $contact_feedback_type === 'success' ? 'is-success' : 'is-error' ?>">
-                    <?= htmlspecialchars($contact_feedback, ENT_QUOTES, 'UTF-8') ?>
+            <div class="problem-layout">
+                <article class="problem-editorial" data-reveal>
+                    <p>
+                        Votre entreprise a peut-être déjà un site en ligne.
+                        Mais si votre offre est mal expliquée, vos visiteurs hésitent et quittent sans vous contacter.
+                    </p>
+                    <p>
+                        Résultat : vous perdez des opportunités, vous répétez souvent les mêmes explications,
+                        et votre présence en ligne ne soutient pas vraiment votre développement.
+                    </p>
+                </article>
+
+                <aside class="problem-frictions" data-reveal aria-label="Points de friction">
+                    <h3>Signaux d'alerte</h3>
+                    <ol>
+                        <li>Votre site ne génère pas assez de demandes.</li>
+                        <li>Votre offre n’est pas comprise rapidement.</li>
+                        <li>Vous perdez du temps à répondre toujours aux mêmes questions.</li>
+                    </ol>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section id="transformation" class="story-transformation">
+        <div class="container">
+            <div class="story-section-head" data-reveal>
+                <p class="story-step">Étape 3 · La transformation</p>
+                <h2>Passer d'une présence dispersée à une expérience qui guide naturellement.</h2>
+            </div>
+
+            <div class="transformation-track">
+                <article class="transformation-state before" data-reveal>
+                    <p class="state-label">Avant</p>
+                    <ul>
+                        <li>Offre difficile à comprendre</li>
+                        <li>Site peu rassurant</li>
+                        <li>Trop de réponses à refaire à la main</li>
+                    </ul>
+                </article>
+
+                <div class="transformation-axis" data-reveal aria-hidden="true">
+                    <span class="axis-dot"></span>
+                    <span class="axis-line"></span>
+                    <span class="axis-dot"></span>
+                </div>
+
+                <article class="transformation-state after" data-reveal>
+                    <p class="state-label">Après</p>
+                    <ul>
+                        <li>Offre plus claire dès les premières secondes</li>
+                        <li>Site plus professionnel et rassurant</li>
+                        <li>Suivi plus simple au quotidien</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="story-solution">
+        <div class="container">
+            <div class="story-section-head" data-reveal>
+                <p class="story-step">Étape 4 · La solution</p>
+                <h2>Une base claire : votre site web, puis les bons compléments.</h2>
+            </div>
+
+            <div class="systems-flow">
+                <article class="system-block" data-reveal>
+                    <p class="system-index">Système 01</p>
+                    <h3>Création de site web</h3>
+                    <p>
+                        Un site clair, rapide et professionnel pour présenter votre offre, rassurer vos visiteurs et générer plus de demandes.
+                    </p>
+                    <ul>
+                        <li>Structure pensée pour la prise de contact</li>
+                        <li>Pages essentielles : accueil, offre, contact</li>
+                        <li>Version responsive et rapide</li>
+                    </ul>
+                </article>
+
+                <article class="system-block" data-reveal>
+                    <p class="system-index">Système 02</p>
+                    <h3>Identité visuelle simple</h3>
+                    <p>
+                        Une identité visuelle simple et cohérente pour renforcer l’image de votre entreprise.
+                    </p>
+                    <ul>
+                        <li>Logo simple et lisible</li>
+                        <li>Palette et repères visuels</li>
+                        <li>Cohérence entre site et supports</li>
+                    </ul>
+                </article>
+
+                <article class="system-block" data-reveal>
+                    <p class="system-index">Système 03</p>
+                    <h3>Automatisations simples</h3>
+                    <p>
+                        Des automatisations utiles pour gagner du temps sur les demandes récurrentes et améliorer le suivi.
+                    </p>
+                    <ul>
+                        <li>Réponses automatiques de base</li>
+                        <li>Préqualification des demandes</li>
+                        <li>Orientation vers le bon canal</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultats" class="story-results">
+        <div class="container results-layout">
+            <div class="results-copy" data-reveal>
+                <p class="story-step">Étape 5 · Les résultats</p>
+                <h2>Des bénéfices visibles pour votre activité, pas juste un beau design.</h2>
+                <p>
+                    L’objectif n’est pas seulement d’avoir un site plus joli, mais un site plus utile :
+                    mieux expliquer votre offre, faciliter la prise de contact et vous faire gagner du temps.
                 </p>
-            <?php endif; ?>
+            </div>
 
-            <form class="contact-home-form" action="#" method="post">
-                <input type="hidden" name="contact_form" value="1">
-                <input type="text" name="website" class="contact-honeypot" tabindex="-1" autocomplete="off">
-                <div class="contact-home-grid">
-                    <div class="contact-home-field">
-                        <label for="contact-name">Nom</label>
-                        <input type="text" id="contact-name" name="name" value="<?= htmlspecialchars($contact_form_data['name'], ENT_QUOTES, 'UTF-8') ?>" required>
-                    </div>
-                    <div class="contact-home-field">
-                        <label for="contact-email">Email</label>
-                        <input type="email" id="contact-email" name="email" value="<?= htmlspecialchars($contact_form_data['email'], ENT_QUOTES, 'UTF-8') ?>" required>
-                    </div>
-                </div>
+            <div class="results-board">
+                <article class="result-item" data-reveal>
+                    <h3>Une offre mieux comprise</h3>
+                    <p>Vos visiteurs comprennent plus vite ce que vous proposez et à qui vous vous adressez.</p>
+                </article>
+                <article class="result-item" data-reveal>
+                    <h3>Davantage de demandes utiles</h3>
+                    <p>Le site aide vos visiteurs à passer à l’action plus facilement et améliore la qualité des prises de contact.</p>
+                </article>
+                <article class="result-item" data-reveal>
+                    <h3>Moins de tâches répétitives</h3>
+                    <p>Des réponses mieux préparées et des automatisations simples réduisent le temps passé sur les demandes récurrentes.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-                <div class="contact-home-field">
-                    <label for="contact-subject">Sujet</label>
-                    <input type="text" id="contact-subject" name="subject" value="<?= htmlspecialchars($contact_form_data['subject'], ENT_QUOTES, 'UTF-8') ?>" required>
-                </div>
-
-                <div class="contact-home-field">
-                    <label for="contact-message">Message</label>
-                    <textarea id="contact-message" name="message" rows="6" required><?= htmlspecialchars($contact_form_data['message'], ENT_QUOTES, 'UTF-8') ?></textarea>
-                </div>
-
-                <button type="submit" class="contact-home-submit">Envoyer</button>
-            </form>
+    <section id="contact" class="story-final-cta">
+        <div class="container">
+            <div class="story-cta-box" data-reveal>
+                <p class="story-step">Étape 6 · Le prochain mouvement</p>
+                <h2>Parlons de votre site web et de ce qu’il peut vraiment apporter à votre entreprise.</h2>
+                <p>
+                    Que vous partiez de zéro ou que vous ayez déjà un site en ligne,
+                    je peux vous aider à clarifier votre présence en ligne et à créer un site plus utile pour votre activité.
+                </p>
+                <a href="/contact.php" class="btn btn-primary">
+                    <span class="button-outer"><span class="button-inner"><span class="button-text">Discuter de votre projet</span></span></span>
+                </a>
+            </div>
         </div>
     </section>
 </main>

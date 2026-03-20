@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 if (!headers_sent()) {
     header('Content-Type: text/html; charset=UTF-8');
 }
@@ -15,13 +17,13 @@ $brand_mark = isset($brand_mark) ? strtoupper(trim((string) $brand_mark)) : 'FDS
 
 $page_title = isset($page_title)
     ? (string) $page_title
-    : 'Développeur freelance | Sites web, logos et chatbots | ' . $site_name;
+    : 'Création de sites web pour petites entreprises | ' . $site_name;
 $page_description = isset($page_description)
     ? (string) $page_description
-    : 'Développeur freelance proposant la création de site web, de logo et de chatbots pour les petites entreprises au Canada.';
+    : 'Création de sites web clairs, identité visuelle simple et automatisations pour les petites entreprises.';
 $page_og_type = isset($page_og_type) ? (string) $page_og_type : 'website';
 
-// TODO: Remplacer par votre vrai domaine de production.
+// À remplacer par votre vrai domaine de production avant mise en ligne.
 $site_base_url = isset($site_base_url) ? (string) $site_base_url : 'https://www.votre-domaine.ca';
 $page_path = isset($page_path) ? (string) $page_path : $currentPage;
 $canonical_url = rtrim($site_base_url, '/') . '/' . ltrim($page_path, '/');

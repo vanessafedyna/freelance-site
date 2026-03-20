@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-$page_title = 'À propos | Développeur freelance PHP, JavaScript, HTML, CSS | Freelance Dev Studio';
-$page_description = 'Développeur freelance spécialisé en PHP, JavaScript, HTML et CSS. Solutions web sur mesure pour petites entreprises au Canada.';
-$page_keywords = 'développeur freelance, PHP, JavaScript, HTML, CSS, solutions web petites entreprises';
+$page_title = 'À propos | Création de sites web pour petites entreprises | Freelance Dev Studio';
+$page_description = 'Découvrez l’approche de Freelance Dev Studio : création de sites web clairs, identité visuelle simple et solutions web adaptées aux petites entreprises.';
+$page_keywords = 'à propos freelance web, création site web, petites entreprises, identité visuelle, PHP Laravel';
 $page_path = 'about.php';
 
 include('includes/header.php');
@@ -12,11 +12,10 @@ include('includes/header.php');
 <main class="about-page">
     <section class="section about-hero">
         <div class="container about-hero-inner">
-            <p class="hero-badge">Freelance digital</p>
-            <h1>À propos</h1>
+            <p class="hero-badge">À propos de Freelance Dev Studio</p>
+            <h1>Je conçois des sites web clairs, utiles et adaptés aux petites entreprises.</h1>
             <p class="about-intro">
-                Je suis développeur freelance et j'accompagne les petites entreprises à construire
-                une présence en ligne solide, professionnelle et utile pour leur croissance.
+                Mon objectif est de créer des solutions web simples, professionnelles et faciles à faire évoluer, avec une approche claire du besoin jusqu’à la mise en ligne.
             </p>
             <a href="contact.php" class="btn btn-primary">
                 <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
@@ -27,33 +26,36 @@ include('includes/header.php');
     <section class="section about-profile">
         <div class="container about-profile-grid">
             <article class="about-profile-card">
-                <h2>Développeur freelance pour vos projets web et branding</h2>
+                <h2>Un profil orienté web, clarté et solutions concrètes</h2>
                 <p>
-                    J'interviens sur des projets de création de site web, de logo et d'automatisation
-                    avec une approche claire : livrer des solutions modernes, responsives et utiles au quotidien.
+                    Je travaille principalement sur des projets de création de site web pour petites entreprises, avec une attention particulière à la lisibilité, à la structure du contenu et à la facilité d’utilisation.
                 </p>
-                <h3>Technologies principales</h3>
+                <p>
+                    J’utilise des technologies comme PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des sites fiables, clairs et évolutifs. Ma formation en cybersécurité et mes connaissances en environnement technique me permettent aussi d’aborder les projets avec une attention particulière à la sécurité et à la solidité de la base.
+                </p>
+                <h3>Technologies et bases techniques</h3>
                 <ul class="tech-stack">
                     <li>PHP</li>
+                    <li>Laravel</li>
+                    <li>MySQL</li>
                     <li>JavaScript</li>
                     <li>HTML</li>
                     <li>CSS</li>
                 </ul>
                 <p class="about-profile-note">
-                    Mon objectif est de proposer des solutions fiables, simples à utiliser et faciles à faire évoluer.
+                    Je privilégie des solutions simples à utiliser, claires à maintenir et adaptées au niveau réel de maturité d’une petite entreprise.
                 </p>
             </article>
 
             <aside class="about-profile-side" aria-label="Positionnement professionnel">
-                <h3>Ce que je construis</h3>
+                <h3>Ce que j’apporte dans un projet</h3>
                 <ul class="about-side-list">
-                    <li>Sites web clairs et adaptés aux petites structures</li>
-                    <li>Identités visuelles cohérentes pour renforcer la marque</li>
-                    <li>Automatisations pratiques pour gagner du temps</li>
+                    <li>Un site web structuré pour mieux présenter votre activité</li>
+                    <li>Une identité visuelle simple et cohérente</li>
+                    <li>Une base technique propre et évolutive</li>
                 </ul>
                 <p>
-                    Chaque projet est pensé pour vous aider à mieux communiquer, inspirer confiance
-                    et faciliter la prise de contact de vos clients.
+                    Chaque projet est pensé pour être compréhensible, rassurant pour vos visiteurs et pertinent pour votre activité au quotidien.
                 </p>
             </aside>
         </div>
@@ -63,24 +65,24 @@ include('includes/header.php');
         <div class="container">
             <h2 class="section-title">Mission et approche</h2>
             <p class="section-intro">
-                Une méthode de travail structurée pour transformer une idée en résultat concret.
+                Une manière de travailler simple, claire et adaptée aux besoins réels d’une petite entreprise.
             </p>
             <div class="mission-list">
                 <article class="mission-item">
-                    <h3>Écoute du besoin</h3>
-                    <p>Je prends le temps de comprendre votre activité, vos priorités et vos objectifs.</p>
+                    <h3>Comprendre le besoin</h3>
+                    <p>Je prends le temps de comprendre votre activité, vos priorités et ce que votre site doit réellement apporter.</p>
                 </article>
                 <article class="mission-item">
-                    <h3>Solutions sur mesure</h3>
-                    <p>Chaque proposition est adaptée à votre contexte et à vos ressources.</p>
+                    <h3>Proposer une solution claire</h3>
+                    <p>Je privilégie des choix adaptés à votre contexte, à votre budget et à votre niveau de maturité digitale.</p>
                 </article>
                 <article class="mission-item">
-                    <h3>Design clair et professionnel</h3>
-                    <p>Je privilégie des interfaces lisibles, modernes et efficaces pour vos visiteurs.</p>
+                    <h3>Concevoir avec clarté</h3>
+                    <p>Je construis des pages lisibles, structurées et pensées pour être utiles à vos visiteurs.</p>
                 </article>
                 <article class="mission-item">
-                    <h3>Accompagnement de projet</h3>
-                    <p>Vous avancez avec un suivi simple, des étapes nettes et des décisions expliquées.</p>
+                    <h3>Avancer simplement</h3>
+                    <p>Le projet progresse avec des étapes nettes, des échanges directs et des décisions expliquées.</p>
                 </article>
             </div>
         </div>
@@ -112,10 +114,10 @@ include('includes/header.php');
 
     <section class="section about-final-cta">
         <div class="container cta-box about-cta-box">
-            <h2>Parlons de votre projet</h2>
+            <h2>Parlons du site web dont votre entreprise a réellement besoin.</h2>
             <p>
-                Vous avez une idée de site web, de logo ou d'automatisation ? Je vous aide à la cadrer
-                puis à la transformer en solution professionnelle.
+                Que vous partiez de zéro ou que vous souhaitiez clarifier un projet existant,
+                je peux vous aider à construire une solution web claire, utile et adaptée à votre activité.
             </p>
             <a href="contact.php" class="btn btn-primary">
                 <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
