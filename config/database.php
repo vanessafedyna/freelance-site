@@ -1,26 +1,14 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Configuration MySQL (a modifier selon votre environnement).
- */
-const DB_HOST = '127.0.0.1';
+const DB_HOST = 'localhost';
 const DB_NAME = 'freelance_site';
-const DB_USER = 'root';
-const DB_PASS = '';
+const DB_USERNAME = 'root';
+const DB_PASSWORD = '';
 const DB_CHARSET = 'utf8mb4';
 
-/**
- * Retourne une connexion PDO reutilisable.
- */
-function get_db_connection(): PDO
+function getDatabaseConnection(): ?PDO
 {
-    static $pdo = null;
-
-    if ($pdo instanceof PDO) {
-        return $pdo;
-    }
-
     $dsn = sprintf(
         'mysql:host=%s;dbname=%s;charset=%s',
         DB_HOST,
@@ -34,6 +22,10 @@ function get_db_connection(): PDO
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
 
-    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-    return $pdo;
+    try {
+        return new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
+    } catch (PDOException $exception) {
+        echo 'Erreur de connexion a la base de donnees.';
+        return null;
+    }
 }
