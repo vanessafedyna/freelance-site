@@ -6,6 +6,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD_HASH = '$2y$10$w4klBvhAT3v6ELgRN0pbyei0jFCk27RT/g.oo8ofI/PB3gW0I182S';
+const ADMIN_PASSWORD_HASH = '$2y$10$X/gwDhtkgy2b1aoZo5qF6e7bbTXtiqsOAMzBUs5oFWfJaGAeN0bou';
 const ADMIN_SESSION_KEY = 'admin_logged_in';
 const ADMIN_SESSION_USERNAME_KEY = 'admin_username';

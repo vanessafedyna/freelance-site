@@ -232,6 +232,7 @@ if (($_GET['created'] ?? '') === '1') {
 
         <div class="actions">
             <a class="btn" href="project-create.php">Ajouter un projet</a>
+            <a class="btn" href="testimonials.php">Gérer les témoignages</a>
         </div>
 
         <?php if ($loadError): ?>

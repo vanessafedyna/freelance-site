@@ -81,7 +81,35 @@ if ($projectFound && (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST')) {
     $values['project_year'] = trim((string) ($_POST['project_year'] ?? ''));
     $values['short_description'] = trim((string) ($_POST['short_description'] ?? ''));
     $values['result_text'] = trim((string) ($_POST['result_text'] ?? ''));
-    $values['thumbnail'] = trim((string) ($_POST['thumbnail'] ?? ''));
+    $values['thumbnail'] = trim((string) ($_POST['thumbnail_current'] ?? ''));
+    if (isset($_FILES['thumbnail_file']) && $_FILES['thumbnail_file']['error'] !== UPLOAD_ERR_NO_FILE) {
+        $file = $_FILES['thumbnail_file'];
+        $allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            $errors['thumbnail'] = 'Erreur lors du téléversement (code ' . $file['error'] . ').';
+        } elseif ($file['size'] > 2 * 1024 * 1024) {
+            $errors['thumbnail'] = 'L\'image ne doit pas dépasser 2 Mo.';
+        } else {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime = finfo_file($finfo, $file['tmp_name']);
+            finfo_close($finfo);
+            if (!in_array($mime, $allowedMimes, true)) {
+                $errors['thumbnail'] = 'Format accepté : JPG, PNG, WebP, GIF.';
+            } else {
+                $extMap = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/gif' => 'gif'];
+                $filename = ($values['slug'] !== '' ? $values['slug'] : uniqid()) . '-' . time() . '.' . $extMap[$mime];
+                $uploadDir = __DIR__ . '/../assets/images/projects/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+                if (move_uploaded_file($file['tmp_name'], $uploadDir . $filename)) {
+                    $values['thumbnail'] = 'assets/images/projects/' . $filename;
+                } else {
+                    $errors['thumbnail'] = 'Impossible de déplacer le fichier téléversé.';
+                }
+            }
+        }
+    }
     $values['link_url'] = trim((string) ($_POST['link_url'] ?? ''));
     $values['link_label'] = trim((string) ($_POST['link_label'] ?? ''));
     $values['is_published'] = (string) ($_POST['is_published'] ?? '0');
@@ -287,6 +315,11 @@ if ($projectFound && (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST')) {
             resize: vertical;
         }
 
+        input[type="file"] {
+            padding: 0.4rem 0.5rem;
+            cursor: pointer;
+        }
+
         input:focus,
         select:focus,
         textarea:focus {
@@ -375,7 +408,7 @@ if ($projectFound && (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST')) {
                     <p class="global-error"><?php echo h($formError); ?></p>
                 <?php endif; ?>
 
-                <form method="post" action="project-edit.php?id=<?php echo urlencode((string) $projectId); ?>" novalidate>
+                <form method="post" action="project-edit.php?id=<?php echo urlencode((string) $projectId); ?>" enctype="multipart/form-data" novalidate>
                     <div class="grid">
                         <div class="field full">
                             <label for="title">Titre</label>
@@ -430,8 +463,16 @@ if ($projectFound && (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST')) {
                         </div>
 
                         <div class="field full">
-                            <label for="thumbnail">Miniature / chemin image</label>
-                            <input id="thumbnail" name="thumbnail" type="text" value="<?php echo h($values['thumbnail']); ?>">
+                            <label for="thumbnail_file">Miniature (JPG, PNG, WebP, GIF — max 2 Mo)</label>
+                            <?php if ($values['thumbnail'] !== ''): ?>
+                                <img src="<?php echo h('../' . $values['thumbnail']); ?>" alt="Miniature actuelle" style="max-height:120px;border-radius:8px;border:1px solid #d8d0c2;margin-bottom:0.4rem;display:block;">
+                                <small style="color:#555;margin-bottom:0.3rem;display:block;">Image actuelle — sélectionne un nouveau fichier pour la remplacer.</small>
+                            <?php endif; ?>
+                            <input type="hidden" name="thumbnail_current" value="<?php echo h($values['thumbnail']); ?>">
+                            <input id="thumbnail_file" name="thumbnail_file" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+                            <?php if (isset($errors['thumbnail'])): ?>
+                                <span class="error-text"><?php echo h($errors['thumbnail']); ?></span>
+                            <?php endif; ?>
                         </div>
 
                         <div class="field full">

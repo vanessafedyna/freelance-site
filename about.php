@@ -25,15 +25,31 @@ include('includes/header.php');
 
     <section class="section about-profile">
         <div class="container about-profile-grid">
-            <article class="about-profile-card">
+            <div class="about-photo-wrap" data-reveal>
+                <img
+                    src="/assets/images/10032.png"
+                    alt="Vanessa Fedyna — Fondatrice de MONATECH Studio"
+                    class="about-photo"
+                    width="480"
+                    height="580"
+                    loading="lazy"
+                >
+                <div class="about-photo-caption">
+                    <p class="about-name">Vanessa Fedyna</p>
+                    <p class="about-title-tag">Fondatrice · MONATECH Studio</p>
+                </div>
+            </div>
+
+            <div class="about-profile-content" data-reveal>
                 <h2>Un profil orienté web, clarté et solutions concrètes</h2>
                 <p>
                     Je travaille principalement sur des projets de création de site web pour petites entreprises, avec une attention particulière à la lisibilité, à la structure du contenu et à la facilité d’utilisation.
                 </p>
                 <p>
-                    J’utilise des technologies comme PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des sites fiables, clairs et évolutifs. Ma formation en cybersécurité et mes connaissances en environnement technique me permettent aussi d’aborder les projets avec une attention particulière à la sécurité et à la solidité de la base.
+                    J’utilise des technologies comme PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des sites fiables, clairs et évolutifs. Ma formation en cybersécurité me permet aussi d’aborder les projets avec une attention particulière à la sécurité et à la solidité de la base.
                 </p>
-                <h3>Technologies et bases techniques</h3>
+
+                <h3>Stack technique</h3>
                 <ul class="tech-stack">
                     <li>PHP</li>
                     <li>Laravel</li>
@@ -42,22 +58,16 @@ include('includes/header.php');
                     <li>HTML</li>
                     <li>CSS</li>
                 </ul>
-                <p class="about-profile-note">
-                    Je privilégie des solutions simples à utiliser, claires à maintenir et adaptées au niveau réel de maturité d’une petite entreprise.
-                </p>
-            </article>
 
-            <aside class="about-profile-side" aria-label="Positionnement professionnel">
-                <h3>Ce que j’apporte dans un projet</h3>
-                <ul class="about-side-list">
-                    <li>Un site web structuré pour mieux présenter votre activité</li>
-                    <li>Une identité visuelle simple et cohérente</li>
-                    <li>Une base technique propre et évolutive</li>
-                </ul>
-                <p>
-                    Chaque projet est pensé pour être compréhensible, rassurant pour vos visiteurs et pertinent pour votre activité au quotidien.
-                </p>
-            </aside>
+                <div class="about-profile-side" aria-label="Positionnement professionnel">
+                    <h3>Ce que j’apporte dans un projet</h3>
+                    <ul class="about-side-list">
+                        <li>Un site web structuré pour mieux présenter votre activité</li>
+                        <li>Une identité visuelle simple et cohérente</li>
+                        <li>Une base technique propre et évolutive</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 

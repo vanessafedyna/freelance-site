@@ -58,7 +58,7 @@ $footer_brand_logo = isset($brand_logo)
 
                 <section class="footer-col footer-contact" aria-label="Contact">
                     <h2 class="footer-title">Contact</h2>
-                    <p class="footer-contact-line"><a href="mailto:votre-email@exemple.com">votre-email@exemple.com</a></p>
+                    <p class="footer-contact-line"><a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a></p>
                     <a href="<?php echo footer_escape($footer_url('/contact.php')); ?>" class="footer-cta">Discuter de votre projet</a>
                     <p class="footer-response">Réponse sous 24h ouvrées.</p>
                 </section>

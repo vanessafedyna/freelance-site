@@ -24,7 +24,7 @@ $page_description = isset($page_description)
 $page_og_type = isset($page_og_type) ? (string) $page_og_type : 'website';
 
 // À remplacer par votre vrai domaine de production avant mise en ligne.
-$site_base_url = isset($site_base_url) ? (string) $site_base_url : 'https://www.votre-domaine.ca';
+$site_base_url = isset($site_base_url) ? (string) $site_base_url : 'https://www.monatech.ca';
 $page_path = isset($page_path) ? (string) $page_path : $currentPage;
 $canonical_url = rtrim($site_base_url, '/') . '/' . ltrim($page_path, '/');
 
@@ -67,15 +67,92 @@ $navItems = [
     <meta property="og:type" content="<?php echo head_escape($page_og_type); ?>">
     <meta property="og:url" content="<?php echo head_escape($canonical_url); ?>">
     <meta property="og:site_name" content="<?php echo head_escape($site_name); ?>">
+    <meta property="og:image" content="https://www.monatech.ca/assets/images/monatech-logo.png">
+    <meta property="og:image:alt" content="<?php echo head_escape($site_name); ?> — Création de sites web pour petites entreprises">
+    <meta property="og:locale" content="fr_CA">
 
-    <!-- Placez vos icônes dans assets/images/ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo head_escape($page_title); ?>">
+    <meta name="twitter:description" content="<?php echo head_escape($page_description); ?>">
+    <meta name="twitter:image" content="https://www.monatech.ca/assets/images/monatech-logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+
     <link rel="icon" type="image/png" href="<?php echo head_escape($brand_logo); ?>">
-    <link rel="icon" href="<?php echo head_escape(site_url('/assets/images/favicon.ico', $asset_base)); ?>" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo head_escape(site_url('/assets/images/favicon-32x32.png', $asset_base)); ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo head_escape(site_url('/assets/images/favicon-16x16.png', $asset_base)); ?>">
+    <link rel="apple-touch-icon" href="<?php echo head_escape($brand_logo); ?>">
 
     <link rel="stylesheet" href="<?php echo head_escape(site_url('/assets/css/style.css', $asset_base)); ?>">
     <script src="<?php echo head_escape(site_url('/assets/js/script.js', $asset_base)); ?>" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://www.monatech.ca/#vanessa",
+                "name": "Vanessa Fedyna",
+                "jobTitle": "Développeure web freelance",
+                "url": "https://www.monatech.ca",
+                "image": "https://www.monatech.ca/assets/images/10032.png",
+                "email": "vanessa@monatech.ca",
+                "knowsAbout": ["PHP", "Laravel", "MySQL", "JavaScript", "HTML", "CSS", "Cybersécurité"],
+                "worksFor": {
+                    "@id": "https://www.monatech.ca/#organisation"
+                }
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://www.monatech.ca/#organisation",
+                "name": "MONATECH Studio",
+                "url": "https://www.monatech.ca",
+                "logo": "https://www.monatech.ca/assets/images/monatech-logo.png",
+                "image": "https://www.monatech.ca/assets/images/monatech-logo.png",
+                "email": "vanessa@monatech.ca",
+                "description": "Création de sites web clairs, identité visuelle simple et automatisations pour les petites entreprises au Canada.",
+                "founder": {
+                    "@id": "https://www.monatech.ca/#vanessa"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "Canada"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services web",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Création de site web",
+                                "description": "Site vitrine clair, rapide et professionnel pour petites entreprises."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Identité visuelle simple",
+                                "description": "Logo, palette de couleurs et repères visuels cohérents."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Automatisations simples",
+                                "description": "Réponses automatiques et préqualification des demandes clients."
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <header class="site-header" data-js="premium-nav">

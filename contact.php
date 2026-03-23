@@ -159,7 +159,7 @@ include('includes/header.php');
                     J’accompagne les petites entreprises qui souhaitent clarifier leur présence en ligne et mettre en place un site web plus utile à leur activité.
                 </p>
                 <ul class="contact-details">
-                    <li><strong>Email :</strong> <a href="mailto:votre-email@exemple.com">votre-email@exemple.com</a></li>
+                    <li><strong>Email :</strong> <a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a></li>
                     <li><strong>Services :</strong> Sites web, identité visuelle simple, automatisations simples</li>
                     <li><strong>Disponibilité :</strong> Lundi au vendredi</li>
                 </ul>

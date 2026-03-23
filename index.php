@@ -1,6 +1,63 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/includes/db.php';
+
+$featured_projects = [];
+try {
+    $pdo = get_db_connection();
+    $stmt = $pdo->query(
+        'SELECT title, slug, category, short_description, thumbnail, link_url
+         FROM projects
+         WHERE is_published = 1
+         ORDER BY display_order ASC, created_at DESC
+         LIMIT 3'
+    );
+    $featured_projects = $stmt->fetchAll();
+} catch (Throwable $e) {
+    $featured_projects = [];
+}
+
+// Témoignages approuvés
+$testimonials = [];
+try {
+    $pdo = get_db_connection();
+    $stmt = $pdo->query('SELECT name, job_title, message FROM testimonials WHERE is_approved = 1 ORDER BY created_at DESC');
+    $testimonials = $stmt->fetchAll();
+} catch (Throwable $e) {
+    $testimonials = [];
+}
+
+// Soumission d'un avis
+$testimonial_success = false;
+$testimonial_error = '';
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && isset($_POST['testimonial_submit'])) {
+    $t_name    = trim((string) ($_POST['t_name'] ?? ''));
+    $t_title   = trim((string) ($_POST['t_title'] ?? ''));
+    $t_message = trim((string) ($_POST['t_message'] ?? ''));
+
+    if ($t_name === '' || mb_strlen($t_name) > 100) {
+        $testimonial_error = 'Veuillez entrer votre nom (max 100 caractères).';
+    } elseif ($t_message === '' || mb_strlen($t_message) < 20) {
+        $testimonial_error = 'Votre avis doit contenir au moins 20 caractères.';
+    } elseif (mb_strlen($t_message) > 1000) {
+        $testimonial_error = 'Votre avis ne doit pas dépasser 1000 caractères.';
+    } else {
+        try {
+            $pdo = get_db_connection();
+            $ins = $pdo->prepare('INSERT INTO testimonials (name, job_title, message) VALUES (:name, :job_title, :message)');
+            $ins->execute([
+                'name'      => $t_name,
+                'job_title' => $t_title !== '' ? $t_title : null,
+                'message'   => $t_message,
+            ]);
+            $testimonial_success = true;
+        } catch (Throwable $e) {
+            $testimonial_error = 'Une erreur est survenue. Veuillez réessayer.';
+        }
+    }
+}
+
 $page_title = 'Développeur freelance au Canada | Interface web narrative et conversion | MONATECH';
 $page_description = 'Je conçois des expériences web narratives pour petites entreprises au Canada : site web, logo et automatisation chatbot orientés conversion.';
 $page_path = 'index.php';
@@ -48,6 +105,47 @@ include __DIR__ . '/includes/header.php';
             </div>
         </div>
     </section>
+
+    <?php if (!empty($featured_projects)): ?>
+    <section class="section featured-work">
+        <div class="container">
+            <div class="featured-work-head" data-reveal>
+                <div>
+                    <p class="story-step">Réalisations</p>
+                    <h2>Quelques projets récents.</h2>
+                </div>
+                <a href="/portfolio.php" class="featured-work-link">Voir tout le portfolio →</a>
+            </div>
+
+            <div class="featured-grid">
+                <?php foreach ($featured_projects as $fp):
+                    $fpThumb = trim((string) ($fp['thumbnail'] ?? ''));
+                    $fpHasImage = $fpThumb !== '' && (bool) preg_match('/\.(jpg|jpeg|png|webp|gif)$/i', $fpThumb);
+                    $fpTitle = htmlspecialchars(trim((string) ($fp['title'] ?? '')), ENT_QUOTES, 'UTF-8');
+                    $fpCategory = htmlspecialchars(trim((string) ($fp['category'] ?? '')), ENT_QUOTES, 'UTF-8');
+                    $fpDesc = htmlspecialchars(trim((string) ($fp['short_description'] ?? '')), ENT_QUOTES, 'UTF-8');
+                    $fpLink = trim((string) ($fp['link_url'] ?? '')) ?: '/portfolio.php';
+                ?>
+                <article class="featured-card ui-card" data-reveal>
+                    <div class="featured-card-thumb">
+                        <?php if ($fpHasImage): ?>
+                            <img src="<?php echo htmlspecialchars($fpThumb, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo $fpTitle; ?>" loading="lazy">
+                        <?php else: ?>
+                            <span class="featured-card-placeholder"><?php echo $fpCategory ?: 'Projet'; ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="featured-card-body">
+                        <p class="featured-card-category"><?php echo $fpCategory; ?></p>
+                        <h3><?php echo $fpTitle; ?></h3>
+                        <p><?php echo $fpDesc; ?></p>
+                        <a href="<?php echo htmlspecialchars($fpLink, ENT_QUOTES, 'UTF-8'); ?>" class="featured-card-cta">Voir le projet →</a>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <section id="probleme" class="story-problem">
         <div class="container">
@@ -189,6 +287,76 @@ include __DIR__ . '/includes/header.php';
                     <h3>Moins de tâches répétitives</h3>
                     <p>Des réponses mieux préparées et des automatisations simples réduisent le temps passé sur les demandes récurrentes.</p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="testimonials-head" data-reveal>
+                <p class="story-step">Témoignages</p>
+                <h2>Ce que disent les clients.</h2>
+            </div>
+
+            <?php if (!empty($testimonials)): ?>
+                <div class="testimonials-grid">
+                    <?php foreach ($testimonials as $t): ?>
+                        <article class="testimonial-card" data-reveal>
+                            <div class="testimonial-avatar"></div>
+                            <div class="testimonial-body">
+                                <p class="testimonial-quote">"<?php echo htmlspecialchars((string)$t['message'], ENT_QUOTES, 'UTF-8'); ?>"</p>
+                                <p class="testimonial-author">
+                                    — <?php echo htmlspecialchars((string)$t['name'], ENT_QUOTES, 'UTF-8'); ?>
+                                    <?php if (!empty($t['job_title'])): ?>
+                                        <span class="testimonial-job">, <?php echo htmlspecialchars((string)$t['job_title'], ENT_QUOTES, 'UTF-8'); ?></span>
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <p class="testimonials-empty" data-reveal>Les premiers avis arrivent bientôt.</p>
+            <?php endif; ?>
+
+            <div class="testimonial-form-wrap" data-reveal>
+                <h3>Vous avez travaillé avec moi ?</h3>
+                <p>Partagez votre expérience — votre avis sera publié après vérification.</p>
+
+                <?php if ($testimonial_success): ?>
+                    <div class="testimonial-alert testimonial-alert-success">
+                        Merci pour votre avis ! Il sera visible après validation.
+                    </div>
+                <?php elseif ($testimonial_error !== ''): ?>
+                    <div class="testimonial-alert testimonial-alert-error">
+                        <?php echo htmlspecialchars($testimonial_error, ENT_QUOTES, 'UTF-8'); ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!$testimonial_success): ?>
+                    <form class="testimonial-form" method="post" action="#testimonials" novalidate>
+                        <input type="hidden" name="testimonial_submit" value="1">
+                        <div class="testimonial-form-row">
+                            <div class="testimonial-field">
+                                <label for="t_name">Votre nom *</label>
+                                <input type="text" id="t_name" name="t_name" maxlength="100" required
+                                    value="<?php echo htmlspecialchars($_POST['t_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                            </div>
+                            <div class="testimonial-field">
+                                <label for="t_title">Poste ou entreprise</label>
+                                <input type="text" id="t_title" name="t_title" maxlength="150"
+                                    value="<?php echo htmlspecialchars($_POST['t_title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                            </div>
+                        </div>
+                        <div class="testimonial-field">
+                            <label for="t_message">Votre avis *</label>
+                            <textarea id="t_message" name="t_message" rows="4" maxlength="1000" required><?php echo htmlspecialchars($_POST['t_message'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="button-outer"><span class="button-inner"><span class="button-text">Envoyer mon avis</span></span></span>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
         </div>
     </section>
