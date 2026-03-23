@@ -76,14 +76,21 @@ p {
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    outline-offset: 3px;
 }
 
 .ui-card:hover,
 .ui-card:focus-within {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(47, 107, 102, 0.42);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(17, 19, 24, 0.13), 0 2px 8px rgba(17, 19, 24, 0.07);
+    border-color: rgba(47, 107, 102, 0.5);
+}
+
+.ui-card:focus-visible {
+    outline: 2px solid var(--primary);
 }
 
 .ui-panel {
@@ -1388,20 +1395,29 @@ p {
     display: grid;
     align-content: start;
     gap: 0.7rem;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    outline-offset: 3px;
 }
 
-.project-card:hover,
 .project-card:focus-within {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 0 0 3px rgba(47, 107, 102, 0.12), 0 18px 38px rgba(17, 19, 24, 0.11), 0 4px 12px rgba(17, 19, 24, 0.06);
     border-color: rgba(47, 107, 102, 0.42);
+}
+
+.project-card:focus-visible {
+    outline: 2px solid var(--primary);
 }
 
 .project-thumb {
     min-height: 135px;
     border-radius: var(--radius-md);
     border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
     background:
         linear-gradient(120deg, rgba(18, 22, 29, 0.92), rgba(27, 36, 48, 0.96)),
         repeating-linear-gradient(45deg, rgba(216, 208, 194, 0.1) 0, rgba(216, 208, 194, 0.1) 10px, rgba(47, 107, 102, 0.08) 10px, rgba(47, 107, 102, 0.08) 20px);
@@ -1412,6 +1428,19 @@ p {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     font-size: 0.78rem;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:focus-within .project-thumb img {
+    transform: scale(1.035);
 }
 
 .project-head {
@@ -1479,13 +1508,32 @@ p {
     font-weight: 700;
     width: fit-content;
     border-bottom: 1px solid rgba(17, 19, 24, 0.28);
-    transition: color 0.22s ease, border-color 0.22s ease;
+    border-radius: 8px;
+    outline: none;
+    transition: color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
-.project-link:hover,
 .project-link:focus-visible {
     color: var(--primary);
     border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 107, 102, 0.16);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 42px rgba(17, 19, 24, 0.12), 0 4px 12px rgba(17, 19, 24, 0.06);
+        border-color: rgba(47, 107, 102, 0.34);
+    }
+
+    .project-card:hover .project-thumb img {
+        transform: scale(1.045);
+    }
+
+    .project-link:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+    }
 }
 
 .portfolio-values {
@@ -2182,6 +2230,21 @@ p {
     flex-direction: column;
     border-radius: var(--radius-lg);
     overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    outline-offset: 3px;
+}
+
+.featured-card:hover,
+.featured-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(17, 19, 24, 0.13), 0 2px 8px rgba(17, 19, 24, 0.07);
+    border-color: rgba(47, 107, 102, 0.5);
+}
+
+.featured-card:focus-visible {
+    outline: 2px solid var(--primary);
 }
 
 .featured-card-thumb {
@@ -2198,11 +2261,12 @@ p {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.featured-card:hover .featured-card-thumb img {
-    transform: scale(1.04);
+.featured-card:hover .featured-card-thumb img,
+.featured-card:focus-within .featured-card-thumb img {
+    transform: scale(1.05);
 }
 
 .featured-card-placeholder {
@@ -2249,8 +2313,95 @@ p {
     transition: color 0.2s ease;
 }
 
-.featured-card-cta:hover {
+.featured-card-cta:hover,
+.featured-card-cta:focus-visible {
     color: var(--primary);
+}
+
+.project-hover-card {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    outline-offset: 3px;
+}
+
+.project-hover-card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 3px rgba(47, 107, 102, 0.12), 0 18px 38px rgba(17, 19, 24, 0.11), 0 4px 12px rgba(17, 19, 24, 0.06);
+    border-color: rgba(47, 107, 102, 0.42);
+}
+
+.project-hover-media {
+    overflow: hidden;
+    position: relative;
+}
+
+.project-hover-media img {
+    transform-origin: center center;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-hover-card:focus-within .project-hover-media img {
+    transform: scale(1.035);
+}
+
+.project-hover-link {
+    border-radius: 8px;
+    outline: none;
+    transition: color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.project-hover-link:focus-visible {
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 107, 102, 0.16);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-hover-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 42px rgba(17, 19, 24, 0.12), 0 4px 12px rgba(17, 19, 24, 0.06);
+        border-color: rgba(47, 107, 102, 0.34);
+    }
+
+    .project-hover-card:hover .project-hover-media img {
+        transform: scale(1.045);
+    }
+
+    .project-hover-link:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .project-hover-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-soft);
+        border-color: var(--line);
+    }
+
+    .project-hover-card:hover .project-hover-media img {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-hover-card,
+    .project-hover-media img,
+    .project-hover-link {
+        transition: none;
+    }
+
+    .project-hover-card:hover,
+    .project-hover-card:focus-within {
+        transform: none;
+    }
+
+    .project-hover-card:hover .project-hover-media img,
+    .project-hover-card:focus-within .project-hover-media img {
+        transform: none;
+    }
 }
 
 @media (max-width: 900px) {
@@ -2626,6 +2777,97 @@ p {
 
     .story-scroll-indicator span::after {
         animation: none;
+    }
+}
+
+/* ================================================
+   Reveal on scroll (.reveal / .reveal-visible)
+   ================================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================
+   Hero entrance animation (.hero-enter)
+   ================================================ */
+
+.hero-enter {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition-delay: var(--hero-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.hero-enter.hero-enter-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.hero-enter-d1 { --hero-delay: 0ms; }
+.hero-enter-d2 { --hero-delay: 120ms; }
+.hero-enter-d3 { --hero-delay: 240ms; }
+.hero-enter-d4 { --hero-delay: 380ms; }
+.hero-enter-d5 { --hero-delay: 520ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Stagger: ajouter .reveal-stagger sur le conteneur parent */
+.reveal-stagger > .reveal:nth-child(1)   { transition-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2)   { transition-delay: 80ms; }
+.reveal-stagger > .reveal:nth-child(3)   { transition-delay: 160ms; }
+.reveal-stagger > .reveal:nth-child(4)   { transition-delay: 240ms; }
+.reveal-stagger > .reveal:nth-child(5)   { transition-delay: 320ms; }
+.reveal-stagger > .reveal:nth-child(6)   { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(n+7) { transition-delay: 480ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ui-card,
+    .project-card,
+    .featured-card,
+    .project-thumb img,
+    .featured-card-thumb img {
+        transition: none;
+    }
+
+    .ui-card:hover,
+    .ui-card:focus-within,
+    .project-card:hover,
+    .project-card:focus-within,
+    .featured-card:hover,
+    .featured-card:focus-within {
+        transform: none;
+    }
+
+    .project-card:hover .project-thumb img,
+    .project-card:focus-within .project-thumb img,
+    .featured-card:hover .featured-card-thumb img,
+    .featured-card:focus-within .featured-card-thumb img {
+        transform: none;
     }
 }
 

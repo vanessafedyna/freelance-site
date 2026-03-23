@@ -43,6 +43,12 @@ if (!function_exists('site_url')) {
 }
 
 $brand_logo = isset($brand_logo) ? (string) $brand_logo : site_url('/assets/images/logo-transparent.png', $asset_base);
+$style_asset_path = __DIR__ . '/../assets/css/style.css';
+$script_asset_path = __DIR__ . '/../assets/js/script.js';
+$style_asset_url = site_url('/assets/css/style.css', $asset_base);
+$script_asset_url = site_url('/assets/js/script.js', $asset_base);
+$style_asset_version = is_file($style_asset_path) ? (string) filemtime($style_asset_path) : '1';
+$script_asset_version = is_file($script_asset_path) ? (string) filemtime($script_asset_path) : '1';
 
 $navItems = [
     ['label' => 'Accueil', 'href' => site_url('/index.php', $asset_base), 'page' => 'index.php'],
@@ -83,8 +89,8 @@ $navItems = [
     <link rel="icon" type="image/png" href="<?php echo head_escape($brand_logo); ?>">
     <link rel="apple-touch-icon" href="<?php echo head_escape($brand_logo); ?>">
 
-    <link rel="stylesheet" href="<?php echo head_escape(site_url('/assets/css/style.css', $asset_base)); ?>">
-    <script src="<?php echo head_escape(site_url('/assets/js/script.js', $asset_base)); ?>" defer></script>
+    <link rel="stylesheet" href="<?php echo head_escape($style_asset_url . '?v=' . rawurlencode($style_asset_version)); ?>">
+    <script src="<?php echo head_escape($script_asset_url . '?v=' . rawurlencode($script_asset_version)); ?>" defer></script>
 
     <script type="application/ld+json">
     {

@@ -128,8 +128,8 @@ include('includes/header.php');
                             $linkLabel = 'Parler d’un projet similaire';
                         }
                         ?>
-                        <article class="project-card" data-reveal>
-                            <div class="project-thumb">
+                        <article class="project-card project-hover-card" data-reveal>
+                            <div class="project-thumb project-hover-media">
                                 <?php if ($hasThumbnailImage): ?>
                                     <img src="<?php echo htmlspecialchars($thumbnailValue, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
                                 <?php else: ?>
@@ -145,7 +145,7 @@ include('includes/header.php');
                             <p><?php echo htmlspecialchars($shortDescription, ENT_QUOTES, 'UTF-8'); ?></p>
                             <p class="project-result">Résultat : <?php echo htmlspecialchars($resultText, ENT_QUOTES, 'UTF-8'); ?></p>
                             <div class="project-footer">
-                                <a href="<?php echo htmlspecialchars($linkUrl, ENT_QUOTES, 'UTF-8'); ?>" class="project-link"><?php echo htmlspecialchars($linkLabel, ENT_QUOTES, 'UTF-8'); ?></a>
+                                <a href="<?php echo htmlspecialchars($linkUrl, ENT_QUOTES, 'UTF-8'); ?>" class="project-link project-hover-link"><?php echo htmlspecialchars($linkLabel, ENT_QUOTES, 'UTF-8'); ?></a>
                             </div>
                         </article>
                     <?php endforeach; ?>

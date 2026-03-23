@@ -69,14 +69,14 @@ include __DIR__ . '/includes/header.php';
     <section id="home" class="story-hero">
         <div class="container">
             <div class="story-hero-grid">
-                <div class="story-hero-copy" data-reveal>
-                    <p class="story-step">Étape 1 · La promesse</p>
-                    <p class="story-kicker">Création de site web pour petites entreprises</p>
-                    <h1>Je crée des sites web clairs et efficaces pour attirer plus de clients.</h1>
-                    <p class="story-lead">
+                <div class="story-hero-copy">
+                    <p class="story-step hero-enter hero-enter-d1">Étape 1 · La promesse</p>
+                    <p class="story-kicker hero-enter hero-enter-d2">Création de site web pour petites entreprises</p>
+                    <h1 class="hero-enter hero-enter-d3">Je crée des sites web clairs et efficaces pour attirer plus de clients.</h1>
+                    <p class="story-lead hero-enter hero-enter-d4">
                         J’aide les petites entreprises à clarifier leur présence en ligne avec un site web professionnel, une image cohérente et des automatisations simples.
                     </p>
-                    <div class="story-actions">
+                    <div class="story-actions hero-enter hero-enter-d5">
                         <a href="/contact.php" class="btn btn-primary">
                             <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
                         </a>
@@ -86,7 +86,7 @@ include __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <aside class="story-hero-aside" data-reveal data-parallax data-speed="0.05" aria-label="Enjeux clients fréquents">
+                <aside class="story-hero-aside hero-enter hero-enter-d5" data-parallax data-speed="0.05" aria-label="Enjeux clients fréquents">
                     <p class="story-panel-title">Le constat terrain</p>
                     <ul>
                         <li>Un site qui informe, mais ne convainc pas.</li>
@@ -126,8 +126,8 @@ include __DIR__ . '/includes/header.php';
                     $fpDesc = htmlspecialchars(trim((string) ($fp['short_description'] ?? '')), ENT_QUOTES, 'UTF-8');
                     $fpLink = trim((string) ($fp['link_url'] ?? '')) ?: '/portfolio.php';
                 ?>
-                <article class="featured-card ui-card" data-reveal>
-                    <div class="featured-card-thumb">
+                <article class="featured-card ui-card project-hover-card" data-reveal>
+                    <div class="featured-card-thumb project-hover-media">
                         <?php if ($fpHasImage): ?>
                             <img src="<?php echo htmlspecialchars($fpThumb, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo $fpTitle; ?>" loading="lazy">
                         <?php else: ?>
@@ -138,7 +138,7 @@ include __DIR__ . '/includes/header.php';
                         <p class="featured-card-category"><?php echo $fpCategory; ?></p>
                         <h3><?php echo $fpTitle; ?></h3>
                         <p><?php echo $fpDesc; ?></p>
-                        <a href="<?php echo htmlspecialchars($fpLink, ENT_QUOTES, 'UTF-8'); ?>" class="featured-card-cta">Voir le projet →</a>
+                        <a href="<?php echo htmlspecialchars($fpLink, ENT_QUOTES, 'UTF-8'); ?>" class="featured-card-cta project-hover-link">Voir le projet →</a>
                     </div>
                 </article>
                 <?php endforeach; ?>

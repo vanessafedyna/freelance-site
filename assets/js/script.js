@@ -117,3 +117,56 @@ if (!window.__storyEffectsInit) {
         window.addEventListener('resize', onScroll);
     }
 }
+
+// Reveal on scroll — IntersectionObserver, stagger CSS, sans librairie.
+if (!window.__revealInit) {
+    window.__revealInit = true;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = document.querySelectorAll('.reveal');
+
+    if (!prefersReduced && 'IntersectionObserver' in window && revealTargets.length > 0) {
+        const revealObserver = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px',
+            }
+        );
+
+        revealTargets.forEach((el) => revealObserver.observe(el));
+    } else {
+        revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }
+}
+
+// Hero entrance animation — séquencée au chargement, sans librairie.
+if (!window.__heroEnterInit) {
+    window.__heroEnterInit = true;
+
+    (function () {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const heroItems = document.querySelectorAll('.hero-enter');
+
+        if (heroItems.length === 0) { return; }
+
+        if (prefersReduced) {
+            heroItems.forEach((el) => el.classList.add('hero-enter-visible'));
+            return;
+        }
+
+        // Double rAF : attend le premier paint avant de déclencher les transitions.
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                heroItems.forEach((el) => el.classList.add('hero-enter-visible'));
+            });
+        });
+    }());
+}
