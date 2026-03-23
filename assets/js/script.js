@@ -6,16 +6,39 @@ if (!window.__premiumNavInit) {
     const menuToggle = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('#primary-nav');
     const navLinks = document.querySelectorAll('#primary-nav a');
+    const mobileNavMedia = window.matchMedia('(max-width: 760px)');
 
     if (siteHeader && menuToggle && siteNav) {
+        const syncNavAccessibility = (isOpen) => {
+            const isMobile = mobileNavMedia.matches;
+            const shouldHideNav = isMobile && !isOpen;
+
+            siteNav.setAttribute('aria-hidden', shouldHideNav ? 'true' : 'false');
+            menuToggle.setAttribute('aria-expanded', String(isMobile && isOpen));
+            menuToggle.setAttribute(
+                'aria-label',
+                isMobile && isOpen
+                    ? 'Fermer le menu de navigation'
+                    : 'Ouvrir ou fermer le menu de navigation'
+            );
+
+            navLinks.forEach((link) => {
+                if (shouldHideNav) {
+                    link.setAttribute('tabindex', '-1');
+                } else {
+                    link.removeAttribute('tabindex');
+                }
+            });
+        };
+
         const closeMenu = () => {
             siteHeader.classList.remove('nav-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
+            syncNavAccessibility(false);
         };
 
         const toggleMenu = () => {
             const isOpen = siteHeader.classList.toggle('nav-open');
-            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            syncNavAccessibility(isOpen);
         };
 
         menuToggle.addEventListener('click', toggleMenu);
@@ -46,12 +69,18 @@ if (!window.__premiumNavInit) {
             siteHeader.classList.toggle('is-scrolled', window.scrollY > 10);
         };
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 760) {
-                closeMenu();
+        const syncNavLayout = () => {
+            if (mobileNavMedia.matches) {
+                syncNavAccessibility(siteHeader.classList.contains('nav-open'));
+            } else {
+                siteHeader.classList.remove('nav-open');
+                syncNavAccessibility(false);
             }
-        });
+        };
 
+        window.addEventListener('resize', syncNavLayout);
+
+        syncNavLayout();
         updateHeaderOnScroll();
         window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
     }

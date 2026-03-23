@@ -195,12 +195,6 @@ include __DIR__ . '/includes/header.php';
                     </ul>
                 </article>
 
-                <div class="transformation-axis" data-reveal aria-hidden="true">
-                    <span class="axis-dot"></span>
-                    <span class="axis-line"></span>
-                    <span class="axis-dot"></span>
-                </div>
-
                 <article class="transformation-state after" data-reveal>
                     <p class="state-label">Après</p>
                     <ul>
@@ -291,72 +285,80 @@ include __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="section testimonials-section">
+    <section id="testimonials" class="section testimonials-section">
         <div class="container">
             <div class="testimonials-head" data-reveal>
                 <p class="story-step">Témoignages</p>
                 <h2>Ce que disent les clients.</h2>
             </div>
 
-            <?php if (!empty($testimonials)): ?>
-                <div class="testimonials-grid">
-                    <?php foreach ($testimonials as $t): ?>
-                        <article class="testimonial-card" data-reveal>
-                            <div class="testimonial-avatar"></div>
-                            <div class="testimonial-body">
-                                <p class="testimonial-quote">"<?php echo htmlspecialchars((string)$t['message'], ENT_QUOTES, 'UTF-8'); ?>"</p>
-                                <p class="testimonial-author">
-                                    — <?php echo htmlspecialchars((string)$t['name'], ENT_QUOTES, 'UTF-8'); ?>
-                                    <?php if (!empty($t['job_title'])): ?>
-                                        <span class="testimonial-job">, <?php echo htmlspecialchars((string)$t['job_title'], ENT_QUOTES, 'UTF-8'); ?></span>
-                                    <?php endif; ?>
-                                </p>
-                            </div>
-                        </article>
-                    <?php endforeach; ?>
+            <div class="testimonials-layout">
+                <div class="testimonials-stage">
+                    <div class="testimonials-editorial" data-reveal>
+                        <p>Des retours concrets sur la clarté, la qualité du rendu et la fluidité du travail mené ensemble.</p>
+                    </div>
+
+                    <?php if (!empty($testimonials)): ?>
+                        <div class="testimonials-grid">
+                            <?php foreach ($testimonials as $t): ?>
+                                <article class="testimonial-card" data-reveal>
+                                    <div class="testimonial-avatar"></div>
+                                    <div class="testimonial-body">
+                                        <p class="testimonial-quote">"<?php echo htmlspecialchars((string)$t['message'], ENT_QUOTES, 'UTF-8'); ?>"</p>
+                                        <p class="testimonial-author">
+                                            — <?php echo htmlspecialchars((string)$t['name'], ENT_QUOTES, 'UTF-8'); ?>
+                                            <?php if (!empty($t['job_title'])): ?>
+                                                <span class="testimonial-job">, <?php echo htmlspecialchars((string)$t['job_title'], ENT_QUOTES, 'UTF-8'); ?></span>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <p class="testimonials-empty" data-reveal>Les premiers avis arrivent bientôt.</p>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <p class="testimonials-empty" data-reveal>Les premiers avis arrivent bientôt.</p>
-            <?php endif; ?>
 
-            <div class="testimonial-form-wrap" data-reveal>
-                <h3>Vous avez travaillé avec moi ?</h3>
-                <p>Partagez votre expérience — votre avis sera publié après vérification.</p>
+                <div class="testimonial-form-wrap" data-reveal>
+                    <h3>Vous avez travaillé avec moi ?</h3>
+                    <p>Partagez votre expérience — votre avis sera publié après vérification.</p>
 
-                <?php if ($testimonial_success): ?>
-                    <div class="testimonial-alert testimonial-alert-success">
-                        Merci pour votre avis ! Il sera visible après validation.
-                    </div>
-                <?php elseif ($testimonial_error !== ''): ?>
-                    <div class="testimonial-alert testimonial-alert-error">
-                        <?php echo htmlspecialchars($testimonial_error, ENT_QUOTES, 'UTF-8'); ?>
-                    </div>
-                <?php endif; ?>
+                    <?php if ($testimonial_success): ?>
+                        <div class="testimonial-alert testimonial-alert-success">
+                            Merci pour votre avis ! Il sera visible après validation.
+                        </div>
+                    <?php elseif ($testimonial_error !== ''): ?>
+                        <div class="testimonial-alert testimonial-alert-error">
+                            <?php echo htmlspecialchars($testimonial_error, ENT_QUOTES, 'UTF-8'); ?>
+                        </div>
+                    <?php endif; ?>
 
-                <?php if (!$testimonial_success): ?>
-                    <form class="testimonial-form" method="post" action="#testimonials" novalidate>
-                        <input type="hidden" name="testimonial_submit" value="1">
-                        <div class="testimonial-form-row">
-                            <div class="testimonial-field">
-                                <label for="t_name">Votre nom *</label>
-                                <input type="text" id="t_name" name="t_name" maxlength="100" required
-                                    value="<?php echo htmlspecialchars($_POST['t_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    <?php if (!$testimonial_success): ?>
+                        <form class="testimonial-form" method="post" action="#testimonials" novalidate>
+                            <input type="hidden" name="testimonial_submit" value="1">
+                            <div class="testimonial-form-row">
+                                <div class="testimonial-field">
+                                    <label for="t_name">Votre nom *</label>
+                                    <input type="text" id="t_name" name="t_name" maxlength="100" required
+                                        value="<?php echo htmlspecialchars($_POST['t_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                                </div>
+                                <div class="testimonial-field">
+                                    <label for="t_title">Poste ou entreprise</label>
+                                    <input type="text" id="t_title" name="t_title" maxlength="150"
+                                        value="<?php echo htmlspecialchars($_POST['t_title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                                </div>
                             </div>
                             <div class="testimonial-field">
-                                <label for="t_title">Poste ou entreprise</label>
-                                <input type="text" id="t_title" name="t_title" maxlength="150"
-                                    value="<?php echo htmlspecialchars($_POST['t_title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                                <label for="t_message">Votre avis *</label>
+                                <textarea id="t_message" name="t_message" rows="4" maxlength="1000" required><?php echo htmlspecialchars($_POST['t_message'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
                             </div>
-                        </div>
-                        <div class="testimonial-field">
-                            <label for="t_message">Votre avis *</label>
-                            <textarea id="t_message" name="t_message" rows="4" maxlength="1000" required><?php echo htmlspecialchars($_POST['t_message'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <span class="button-outer"><span class="button-inner"><span class="button-text">Envoyer mon avis</span></span></span>
-                        </button>
-                    </form>
-                <?php endif; ?>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="button-outer"><span class="button-inner"><span class="button-text">Envoyer mon avis</span></span></span>
+                            </button>
+                        </form>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </section>
