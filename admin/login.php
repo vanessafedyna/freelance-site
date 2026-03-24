@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../includes/security-headers.php';
 require_once __DIR__ . '/config.php';
-
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/rate-limiter.php';
 
 if (($_SESSION[ADMIN_SESSION_KEY] ?? false) === true) {
     header('Location: projects.php');
@@ -14,24 +14,36 @@ if (($_SESSION[ADMIN_SESSION_KEY] ?? false) === true) {
 
 $errorMessage = '';
 $usernameValue = '';
+$pdo = get_db_connection();
+$ipAddress = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+
+purge_old_attempts($pdo);
 
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $usernameValue = trim((string) ($_POST['username'] ?? ''));
     $passwordValue = (string) ($_POST['password'] ?? '');
 
-    $isValidUser = hash_equals(ADMIN_USERNAME, $usernameValue);
-    $isValidPassword = password_verify($passwordValue, ADMIN_PASSWORD_HASH);
+    if (is_login_blocked($pdo, $ipAddress)) {
+        sleep(1);
+        $errorMessage = 'Trop de tentatives. Réessayez dans 15 minutes.';
+    } else {
+        $isValidUser = hash_equals(admin_username(), $usernameValue);
+        $isValidPassword = password_verify($passwordValue, admin_password_hash());
 
-    if ($isValidUser && $isValidPassword) {
-        session_regenerate_id(true);
-        $_SESSION[ADMIN_SESSION_KEY] = true;
-        $_SESSION[ADMIN_SESSION_USERNAME_KEY] = $usernameValue;
+        if ($isValidUser && $isValidPassword) {
+            clear_attempts($pdo, $ipAddress);
+            session_regenerate_id(true);
+            $_SESSION[ADMIN_SESSION_KEY] = true;
+            $_SESSION[ADMIN_SESSION_USERNAME_KEY] = $usernameValue;
 
-        header('Location: projects.php');
-        exit;
+            header('Location: projects.php');
+            exit;
+        }
+
+        record_failed_attempt($pdo, $ipAddress);
+        sleep(1);
+        $errorMessage = 'Identifiants invalides.';
     }
-
-    $errorMessage = 'Identifiants invalides.';
 }
 ?>
 <!DOCTYPE html>
@@ -39,6 +51,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Connexion admin</title>
     <style>
         :root {

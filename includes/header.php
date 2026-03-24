@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/security-headers.php';
+
 if (!headers_sent()) {
     header('Content-Type: text/html; charset=UTF-8');
 }
@@ -20,7 +22,7 @@ $page_title = isset($page_title)
     : 'Création de sites web pour petites entreprises | ' . $site_name;
 $page_description = isset($page_description)
     ? (string) $page_description
-    : 'Création de sites web clairs, identité visuelle simple et automatisations pour les petites entreprises.';
+    : 'Création de sites web clairs, identité visuelle essentielle et automatisations pour les petites entreprises.';
 $page_og_type = isset($page_og_type) ? (string) $page_og_type : 'website';
 
 // À remplacer par votre vrai domaine de production avant mise en ligne.
@@ -43,10 +45,13 @@ if (!function_exists('site_url')) {
 }
 
 $brand_logo = isset($brand_logo) ? (string) $brand_logo : site_url('/assets/images/logo-transparent.png', $asset_base);
+$fonts_asset_path = __DIR__ . '/../assets/css/fonts.css';
 $style_asset_path = __DIR__ . '/../assets/css/style.css';
 $script_asset_path = __DIR__ . '/../assets/js/script.js';
+$fonts_asset_url = site_url('/assets/css/fonts.css', $asset_base);
 $style_asset_url = site_url('/assets/css/style.css', $asset_base);
 $script_asset_url = site_url('/assets/js/script.js', $asset_base);
+$fonts_asset_version = is_file($fonts_asset_path) ? (string) filemtime($fonts_asset_path) : '1';
 $style_asset_version = is_file($style_asset_path) ? (string) filemtime($style_asset_path) : '1';
 $script_asset_version = is_file($script_asset_path) ? (string) filemtime($script_asset_path) : '1';
 
@@ -82,13 +87,10 @@ $navItems = [
     <meta name="twitter:description" content="<?php echo head_escape($page_description); ?>">
     <meta name="twitter:image" content="https://www.monatech.ca/assets/images/monatech-logo.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
-
     <link rel="icon" type="image/png" href="<?php echo head_escape($brand_logo); ?>">
     <link rel="apple-touch-icon" href="<?php echo head_escape($brand_logo); ?>">
 
+    <link rel="stylesheet" href="<?php echo head_escape($fonts_asset_url . '?v=' . rawurlencode($fonts_asset_version)); ?>">
     <link rel="stylesheet" href="<?php echo head_escape($style_asset_url . '?v=' . rawurlencode($style_asset_version)); ?>">
     <script src="<?php echo head_escape($script_asset_url . '?v=' . rawurlencode($script_asset_version)); ?>" defer></script>
 
@@ -117,7 +119,7 @@ $navItems = [
                 "logo": "https://www.monatech.ca/assets/images/monatech-logo.png",
                 "image": "https://www.monatech.ca/assets/images/monatech-logo.png",
                 "email": "vanessa@monatech.ca",
-                "description": "Création de sites web clairs, identité visuelle simple et automatisations pour les petites entreprises au Canada.",
+                "description": "Création de sites web clairs, identité visuelle essentielle et automatisations pour les petites entreprises au Canada.",
                 "founder": {
                     "@id": "https://www.monatech.ca/#vanessa"
                 },
@@ -141,7 +143,7 @@ $navItems = [
                             "@type": "Offer",
                             "itemOffered": {
                                 "@type": "Service",
-                                "name": "Identité visuelle simple",
+                                "name": "Identité visuelle essentielle",
                                 "description": "Logo, palette de couleurs et repères visuels cohérents."
                             }
                         },
@@ -149,7 +151,7 @@ $navItems = [
                             "@type": "Offer",
                             "itemOffered": {
                                 "@type": "Service",
-                                "name": "Automatisations simples",
+                                "name": "Automatisations efficaces",
                                 "description": "Réponses automatiques et préqualification des demandes clients."
                             }
                         }
@@ -185,10 +187,10 @@ $navItems = [
                         </li>
                     <?php endforeach; ?>
                 </ul>
-                <a href="<?php echo head_escape(site_url('/contact.php', $asset_base)); ?>" class="nav-cta-mobile">Discuter de votre projet</a>
+                <a href="<?php echo head_escape(site_url('/contact.php', $asset_base)); ?>" class="nav-cta-mobile">Demander un devis gratuit</a>
             </nav>
 
-            <a href="<?php echo head_escape(site_url('/contact.php', $asset_base)); ?>" class="nav-cta">Discuter de votre projet</a>
+            <a href="<?php echo head_escape(site_url('/contact.php', $asset_base)); ?>" class="nav-cta">Demander un devis gratuit</a>
 
             <button
                 class="menu-toggle"

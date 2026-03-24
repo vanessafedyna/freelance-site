@@ -1,17 +1,10 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Configuration MySQL (à modifier selon votre environnement).
- */
-const DB_HOST = '127.0.0.1';
-const DB_NAME = 'freelance_site';
-const DB_USER = 'root';
-const DB_PASS = '';
-const DB_CHARSET = 'utf8mb4';
+require_once __DIR__ . '/env.php';
 
 /**
- * Retourne une connexion PDO réutilisable.
+ * Retourne une connexion PDO reutilisable.
  */
 function get_db_connection(): PDO
 {
@@ -21,11 +14,17 @@ function get_db_connection(): PDO
         return $pdo;
     }
 
+    $dbHost = getenv('DB_HOST');
+    $dbName = getenv('DB_NAME');
+    $dbUser = getenv('DB_USER');
+    $dbPass = getenv('DB_PASS');
+    $dbCharset = getenv('DB_CHARSET');
+
     $dsn = sprintf(
         'mysql:host=%s;dbname=%s;charset=%s',
-        DB_HOST,
-        DB_NAME,
-        DB_CHARSET
+        $dbHost !== false ? $dbHost : '',
+        $dbName !== false ? $dbName : '',
+        $dbCharset !== false ? $dbCharset : ''
     );
 
     $options = [
@@ -34,6 +33,12 @@ function get_db_connection(): PDO
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
 
-    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+    $pdo = new PDO(
+        $dsn,
+        $dbUser !== false ? $dbUser : '',
+        $dbPass !== false ? $dbPass : '',
+        $options
+    );
+
     return $pdo;
 }

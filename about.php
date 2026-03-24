@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 $page_title = 'À propos | Création de sites web pour petites entreprises | MONATECH';
-$page_description = 'Découvrez l’approche de MONATECH : création de sites web clairs, identité visuelle simple et solutions web adaptées aux petites entreprises.';
+$page_description = 'Découvrez l’approche de MONATECH à Montréal : création de sites web clairs, identité visuelle essentielle et solutions web adaptées aux petites entreprises.';
 $page_keywords = 'à propos freelance web, création site web, petites entreprises, identité visuelle, PHP Laravel';
 $page_path = 'about.php';
 
@@ -15,10 +15,10 @@ include('includes/header.php');
             <p class="hero-badge">À propos de MONATECH</p>
             <h1>Je conçois des sites web clairs, utiles et adaptés aux petites entreprises.</h1>
             <p class="about-intro">
-                Mon objectif est de créer des solutions web simples, professionnelles et faciles à faire évoluer, avec une approche claire du besoin jusqu’à la mise en ligne.
+                Mon objectif est de créer des solutions web claires, professionnelles et faciles à faire évoluer, avec une approche claire du besoin jusqu’à la mise en ligne.
             </p>
             <a href="contact.php" class="btn btn-primary">
-                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>
         </div>
     </section>
@@ -48,22 +48,21 @@ include('includes/header.php');
                 <p>
                     J’utilise des technologies comme PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des sites fiables, clairs et évolutifs. Ma formation en cybersécurité me permet aussi d’aborder les projets avec une attention particulière à la sécurité et à la solidité de la base.
                 </p>
+                <a href="https://www.linkedin.com/in/vanessafedyna/" target="_blank" rel="noopener noreferrer" class="linkedin-link">Voir mon profil LinkedIn</a>
 
-                <h3>Stack technique</h3>
+                <h3>Ce que ça signifie pour vous</h3>
                 <ul class="tech-stack">
-                    <li>PHP</li>
-                    <li>Laravel</li>
-                    <li>MySQL</li>
-                    <li>JavaScript</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
+                    <li>Sites évolutifs — Construits avec des technologies robustes qui permettent de faire grandir votre site sans tout refaire.</li>
+                    <li>Données sécurisées — Vos informations clients sont stockées de manière structurée et protégée.</li>
+                    <li>Sécurité intégrée — Formation en cybersécurité : votre site est protégé contre les vulnérabilités courantes dès la mise en ligne.</li>
+                    <li>Code propre et maintenable — Si vous changez de prestataire un jour, votre site reste facile à reprendre.</li>
                 </ul>
 
                 <div class="about-profile-side" aria-label="Positionnement professionnel">
                     <h3>Ce que j’apporte dans un projet</h3>
                     <ul class="about-side-list">
                         <li>Un site web structuré pour mieux présenter votre activité</li>
-                        <li>Une identité visuelle simple et cohérente</li>
+                        <li>Une identité visuelle essentielle et cohérente</li>
                         <li>Une base technique propre et évolutive</li>
                     </ul>
                 </div>
@@ -75,7 +74,7 @@ include('includes/header.php');
         <div class="container">
             <h2 class="section-title">Mission et approche</h2>
             <p class="section-intro">
-                Une manière de travailler simple, claire et adaptée aux besoins réels d’une petite entreprise.
+                Une manière de travailler claire, directe et adaptée aux besoins réels d’une petite entreprise.
             </p>
             <div class="mission-list">
                 <article class="mission-item">
@@ -91,7 +90,7 @@ include('includes/header.php');
                     <p>Je construis des pages lisibles, structurées et pensées pour être utiles à vos visiteurs.</p>
                 </article>
                 <article class="mission-item">
-                    <h3>Avancer simplement</h3>
+                    <h3>Avancer avec méthode</h3>
                     <p>Le projet progresse avec des étapes nettes, des échanges directs et des décisions expliquées.</p>
                 </article>
             </div>
@@ -111,12 +110,12 @@ include('includes/header.php');
                     <p>Un rendu cohérent qui renforce la crédibilité de votre activité.</p>
                 </article>
                 <article class="strength-card">
-                    <h3>Communication simple</h3>
+                    <h3>Communication directe</h3>
                     <p>Des échanges directs, des choix argumentés et un cadre clair.</p>
                 </article>
                 <article class="strength-card">
                     <h3>Approche orientée résultats</h3>
-                    <p>Des livrables concrets pour vous aider à obtenir plus de demandes qualifiées.</p>
+                    <p>Vous travaillez avec une seule personne du début à la fin — pas un account manager qui transmet à une équipe. Votre projet, vos priorités, votre budget : je les connais tous parce que c'est moi qui livre.</p>
                 </article>
             </div>
         </div>
@@ -130,7 +129,7 @@ include('includes/header.php');
                 je peux vous aider à construire une solution web claire, utile et adaptée à votre activité.
             </p>
             <a href="contact.php" class="btn btn-primary">
-                <span class="button-outer"><span class="button-inner"><span class="button-text">Me contacter</span></span></span>
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>
         </div>
     </section>

@@ -11,6 +11,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     exit;
 }
 
+if (!validate_csrf_token((string) ($_POST['csrf_token'] ?? ''))) {
+    http_response_code(403);
+    echo 'Requête invalide (CSRF)';
+    exit;
+}
+
 $projectId = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
 if ($projectId === false || $projectId === null) {
     header('Location: ' . $redirectUrl);

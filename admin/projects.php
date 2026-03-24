@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../includes/security-headers.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../includes/db.php';
 
@@ -20,7 +21,7 @@ try {
     $projects = [];
 }
 
-$adminUsername = (string) ($_SESSION[ADMIN_SESSION_USERNAME_KEY] ?? ADMIN_USERNAME);
+$adminUsername = (string) ($_SESSION[ADMIN_SESSION_USERNAME_KEY] ?? admin_username());
 
 if (($_GET['created'] ?? '') === '1') {
     $flashMessage = 'Projet ajouté avec succès.';
@@ -41,6 +42,7 @@ if (($_GET['created'] ?? '') === '1') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Gestion des projets</title>
     <style>
         :root {
@@ -282,11 +284,13 @@ if (($_GET['created'] ?? '') === '1') {
                                         <form method="post" action="project-toggle-status.php">
                                             <input type="hidden" name="id" value="<?php echo htmlspecialchars((string) $id, ENT_QUOTES, 'UTF-8'); ?>">
                                             <input type="hidden" name="target_status" value="<?php echo htmlspecialchars($targetStatus, ENT_QUOTES, 'UTF-8'); ?>">
+                                            <?php echo csrf_input(); ?>
                                             <button type="submit"><?php echo htmlspecialchars($toggleLabel, ENT_QUOTES, 'UTF-8'); ?></button>
                                         </form>
 
                                         <form method="post" action="project-delete.php">
                                             <input type="hidden" name="id" value="<?php echo htmlspecialchars((string) $id, ENT_QUOTES, 'UTF-8'); ?>">
+                                            <?php echo csrf_input(); ?>
                                             <button type="submit" class="action-danger">Supprimer</button>
                                         </form>
                                     </div>

@@ -31,6 +31,7 @@ function contact_default_values(): array
         'type_projet' => '',
         'budget_estime' => '',
         'message' => '',
+        'consent' => '',
     ];
 }
 
@@ -95,6 +96,7 @@ function handle_contact_form(string $method, array $payload): array
         'type_projet' => contact_sanitize_line((string)($payload['type_projet'] ?? '')),
         'budget_estime' => contact_sanitize_line((string)($payload['budget_estime'] ?? '')),
         'message' => contact_sanitize_message((string)($payload['message'] ?? '')),
+        'consent' => (string) ($payload['consent'] ?? ''),
     ];
 
     $errors = [];
@@ -131,6 +133,10 @@ function handle_contact_form(string $method, array $payload): array
         $errors['message'] = 'Le message doit contenir au moins 20 caractères.';
     } elseif (contact_text_length($values['message']) > 3000) {
         $errors['message'] = 'Le message est trop long (3000 caractères max).';
+    }
+
+    if ($values['consent'] !== '1') {
+        $errors['consent'] = 'Vous devez accepter la politique de confidentialité.';
     }
 
     $state['values'] = $values;

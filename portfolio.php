@@ -19,7 +19,7 @@ try {
 }
 
 $page_title = 'Portfolio freelance | Projets web, identité visuelle et automatisations | MONATECH';
-$page_description = 'Sélection de projets web, identité visuelle simple et automatisations pour petites entreprises. Exemples concrets de réalisations, démos et concepts.';
+$page_description = 'Sélection de projets web, identité visuelle essentielle et automatisations pour petites entreprises. Exemples concrets de réalisations, démos et concepts.';
 $page_keywords = 'portfolio freelance, projets web, identité visuelle, automatisations, petites entreprises';
 $page_path = 'portfolio.php';
 
@@ -34,10 +34,10 @@ include('includes/header.php');
                     <p class="hero-badge">Projets et réalisations</p>
                     <h1>Une sélection de projets web et d’exemples concrets.</h1>
                     <p class="portfolio-intro">
-                        Cette sélection présente des projets clients, des démos et des concepts montrant ma manière de concevoir des sites web clairs, une identité visuelle simple et des automatisations utiles.
+                        Cette sélection présente des projets clients, des démos et des concepts montrant ma manière de concevoir des sites web clairs, une identité visuelle essentielle et des automatisations utiles.
                     </p>
                     <a href="contact.php" class="btn btn-primary">
-                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
                     </a>
                 </div>
 
@@ -46,7 +46,7 @@ include('includes/header.php');
                     <ul class="portfolio-highlight-list">
                         <li>Des sites pensés pour mieux présenter une offre.</li>
                         <li>Une image plus claire et plus cohérente.</li>
-                        <li>Des solutions simples à utiliser au quotidien.</li>
+                        <li>Des solutions faciles à utiliser au quotidien.</li>
                     </ul>
                 </aside>
             </div>
@@ -131,7 +131,7 @@ include('includes/header.php');
                         <article class="project-card project-hover-card" data-reveal>
                             <div class="project-thumb project-hover-media">
                                 <?php if ($hasThumbnailImage): ?>
-                                    <img src="<?php echo htmlspecialchars($thumbnailValue, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                    <img src="<?php echo htmlspecialchars($thumbnailValue, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" width="600" height="400" style="aspect-ratio: 3/2; object-fit: cover;">
                                 <?php else: ?>
                                     <?php echo htmlspecialchars($thumbnailText, ENT_QUOTES, 'UTF-8'); ?>
                                 <?php endif; ?>
@@ -165,7 +165,7 @@ include('includes/header.php');
                     </p>
                     <p>
                         Le design n’est pas décoratif. Il sert la clarté, la confiance et la prise de décision.
-                        Le résultat final reste simple à faire évoluer dans le temps.
+                        Le résultat final reste facile à faire évoluer dans le temps.
                     </p>
                 </div>
 
@@ -180,7 +180,7 @@ include('includes/header.php');
                     </article>
                     <article class="value-card" data-reveal>
                         <h3>Solutions adaptées aux petites entreprises</h3>
-                        <p>Des choix pragmatiques, simples à maintenir et alignés avec votre budget.</p>
+                        <p>Des choix pragmatiques, faciles à maintenir et alignés avec votre budget.</p>
                     </article>
                 </div>
             </div>
@@ -191,11 +191,11 @@ include('includes/header.php');
         <div class="container cta-box portfolio-cta-shell" data-reveal>
             <h2>Parlons de votre futur site web ou d’un projet similaire.</h2>
             <p>
-                Que vous ayez besoin d’un site web, d’une identité visuelle simple ou d’une automatisation utile,
+                Que vous ayez besoin d’un site web, d’une identité visuelle essentielle ou d’une automatisation utile,
                 je peux vous aider à construire une solution claire et adaptée à votre activité.
             </p>
             <a href="contact.php" class="btn btn-primary">
-                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis</span></span></span>
+                <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>
         </div>
     </section>

@@ -1,19 +1,24 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../includes/security-headers.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../includes/db.php';
-
-function h(string $v): string
-{
-    return htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
-}
-
-$pdo = get_db_connection();
+require_once __DIR__ . '/../includes/helpers.php';
 
 // Actions
 $action = trim((string) ($_POST['action'] ?? ''));
 $id     = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT) ?: 0;
+
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+    if (!validate_csrf_token((string) ($_POST['csrf_token'] ?? ''))) {
+        http_response_code(403);
+        echo 'Requête invalide (CSRF)';
+        exit;
+    }
+}
+
+$pdo = get_db_connection();
 
 if ($action === 'approve' && $id > 0) {
     $pdo->prepare('UPDATE testimonials SET is_approved = 1 WHERE id = :id')->execute(['id' => $id]);
@@ -35,6 +40,7 @@ $done = $_GET['done'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Témoignages — Admin</title>
     <style>
         :root { font-family: Arial, sans-serif; }
@@ -105,12 +111,14 @@ $done = $_GET['done'] ?? '';
                                         <form method="post">
                                             <input type="hidden" name="action" value="approve">
                                             <input type="hidden" name="id" value="<?php echo (int)$t['id']; ?>">
+                                            <?php echo csrf_input(); ?>
                                             <button class="btn-approve" type="submit">Approuver</button>
                                         </form>
                                     <?php endif; ?>
                                     <form method="post" onsubmit="return confirm('Supprimer cet avis ?')">
                                         <input type="hidden" name="action" value="delete">
                                         <input type="hidden" name="id" value="<?php echo (int)$t['id']; ?>">
+                                        <?php echo csrf_input(); ?>
                                         <button class="btn-delete" type="submit">Supprimer</button>
                                     </form>
                                 </div>

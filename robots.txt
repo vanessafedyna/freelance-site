@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /forms/
+Disallow: /config/
+Disallow: /database/
+
+Sitemap: https://monatech.ca/sitemap.xml

@@ -1,1 +1,22 @@
+# Environnement
+.env
+
+# Base de donnees
+*.sql
+
+# Logs
 *.log
+
+# Config locale (doublon supprime)
+config/database.php
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads utilisateur (optionnel selon le workflow)
+# uploads/

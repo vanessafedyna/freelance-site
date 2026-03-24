@@ -90,31 +90,41 @@ if (!window.__premiumNavInit) {
 if (!window.__storyEffectsInit) {
     window.__storyEffectsInit = true;
 
-    const revealElements = document.querySelectorAll('[data-reveal]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = document.querySelectorAll('[data-reveal], .reveal');
 
-    if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const markRevealVisible = (element) => {
+        if (element.matches('[data-reveal]')) {
+            element.classList.add('is-visible');
+        }
+
+        if (element.matches('.reveal')) {
+            element.classList.add('reveal-visible');
+        }
+    };
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window && revealTargets.length > 0) {
         const revealObserver = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
+                        markRevealVisible(entry.target);
                         observer.unobserve(entry.target);
                     }
                 });
             },
             {
-                threshold: 0,
-                rootMargin: '0px 0px 0px 0px',
+                threshold: 0.08,
+                rootMargin: '0px 0px -40px 0px',
             }
         );
 
-        revealElements.forEach((el) => revealObserver.observe(el));
+        revealTargets.forEach((element) => revealObserver.observe(element));
     } else {
-        revealElements.forEach((el) => el.classList.add('is-visible'));
+        revealTargets.forEach((element) => markRevealVisible(element));
     }
 
     const parallaxElements = document.querySelectorAll('[data-parallax]');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (parallaxElements.length > 0 && !prefersReducedMotion) {
         const updateParallax = () => {
@@ -144,35 +154,6 @@ if (!window.__storyEffectsInit) {
         updateParallax();
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll);
-    }
-}
-
-// Reveal on scroll — IntersectionObserver, stagger CSS, sans librairie.
-if (!window.__revealInit) {
-    window.__revealInit = true;
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealTargets = document.querySelectorAll('.reveal');
-
-    if (!prefersReduced && 'IntersectionObserver' in window && revealTargets.length > 0) {
-        const revealObserver = new IntersectionObserver(
-            (entries, obs) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.12,
-                rootMargin: '0px 0px -40px 0px',
-            }
-        );
-
-        revealTargets.forEach((el) => revealObserver.observe(el));
-    } else {
-        revealTargets.forEach((el) => el.classList.add('reveal-visible'));
     }
 }
 

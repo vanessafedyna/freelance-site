@@ -32,7 +32,7 @@ $footer_brand_logo = isset($brand_logo)
                         <span class="footer-brand-text"><?php echo footer_escape($footer_site_name); ?></span>
                     </a>
                     <p class="footer-tagline">
-                        Création de sites web, identité visuelle simple et automatisations pour les petites entreprises.
+                        Développeuse web freelance à Montréal. Sites web, identité visuelle et automatisations pour les petites entreprises au Québec.
                     </p>
                 </section>
 
@@ -51,15 +51,20 @@ $footer_brand_logo = isset($brand_logo)
                     <h2 class="footer-title">Services</h2>
                     <ul class="footer-links">
                         <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Création de site web</a></li>
-                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Identité visuelle simple</a></li>
-                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Automatisations simples</a></li>
+                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Identité visuelle essentielle</a></li>
+                        <li><a href="<?php echo footer_escape($footer_url('/services.php')); ?>">Automatisations efficaces</a></li>
                     </ul>
                 </section>
 
                 <section class="footer-col footer-contact" aria-label="Contact">
                     <h2 class="footer-title">Contact</h2>
-                    <p class="footer-contact-line"><a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a></p>
-                    <a href="<?php echo footer_escape($footer_url('/contact.php')); ?>" class="footer-cta">Discuter de votre projet</a>
+                    <div class="footer-contact-links">
+                        <p class="footer-contact-line"><a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a></p>
+                        <p class="footer-contact-line">
+                            <a href="https://www.linkedin.com/in/vanessafedyna/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Vanessa Fedyna">LinkedIn</a>
+                        </p>
+                    </div>
+                    <a href="<?php echo footer_escape($footer_url('/contact.php')); ?>" class="footer-cta">Demander un devis gratuit</a>
                     <p class="footer-response">Réponse sous 24h ouvrées.</p>
                 </section>
             </div>

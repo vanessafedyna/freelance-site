@@ -36,6 +36,10 @@ include('includes/header.php');
             <article class="contact-form-card">
                 <h2>Envoyer une demande</h2>
                 <p class="contact-note">Réponse sous 24 à 48 heures ouvrées selon la demande.</p>
+                <div class="contact-alternative">
+                    <p>Vous préférez en discuter de vive voix ?</p>
+                    <a href="https://calendly.com/monatech" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Réserver un appel de 15 min</a>
+                </div>
 
                 <?php if ($formState['success'] !== ''): ?>
                     <div class="form-alert form-alert-success" role="status">
@@ -147,8 +151,25 @@ include('includes/header.php');
                         <?php endif; ?>
                     </div>
 
+                    <div class="form-field">
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="consent"
+                                value="1"
+                                required
+                                <?php echo $formState['values']['consent'] === '1' ? 'checked' : ''; ?>
+                            >
+                            En soumettant ce formulaire, j'accepte que mes données soient traitées conformément à la
+                            <a href="/politique-confidentialite.php" target="_blank">politique de confidentialité</a>.
+                        </label>
+                        <?php if (isset($formState['errors']['consent'])): ?>
+                            <p class="field-error"><?php echo contact_escape($formState['errors']['consent']); ?></p>
+                        <?php endif; ?>
+                    </div>
+
                     <button type="submit" class="btn btn-primary contact-submit">
-                        <span class="button-outer"><span class="button-inner"><span class="button-text">Envoyer ma demande</span></span></span>
+                        <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
                     </button>
                 </form>
             </article>
@@ -160,7 +181,7 @@ include('includes/header.php');
                 </p>
                 <ul class="contact-details">
                     <li><strong>Email :</strong> <a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a></li>
-                    <li><strong>Services :</strong> Sites web, identité visuelle simple, automatisations simples</li>
+                    <li><strong>Services :</strong> Sites web, identité visuelle essentielle, automatisations efficaces</li>
                     <li><strong>Disponibilité :</strong> Lundi au vendredi</li>
                 </ul>
                 <p class="contact-side-note">
