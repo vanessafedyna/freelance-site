@@ -16,35 +16,32 @@ include __DIR__ . '/includes/header.php';
 
             <h2>Editeur du site</h2>
             <p>
-                Le site est edite par MONATECH Studio.
-                Pour toute demande, vous pouvez contacter l\'editeur a l\'adresse
+                Ce site est edite par Vanessa Fedyna.
+                Si vous avez une question, vous pouvez m'ecrire a
                 <a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a>.
             </p>
 
             <h2>Hebergeur</h2>
             <p>
-                Le site est heberge par [Nom de l\'hebergeur].
+                Le site est heberge par [Nom de l'hebergeur].
             </p>
 
             <h2>Propriete intellectuelle</h2>
             <p>
-                L\'ensemble des contenus presents sur ce site, incluant notamment les textes, visuels, elements graphiques, logos
-                et structures de pages, est protege par les lois applicables en matiere de propriete intellectuelle.
-                Sauf autorisation ecrite prealable, toute reproduction, representation, adaptation ou reutilisation, meme partielle,
-                est interdite.
+                Les textes, visuels, logos et pages de ce site m'appartiennent ou sont utilises avec autorisation.
+                Vous ne pouvez pas les reutiliser sans mon accord ecrit.
             </p>
 
             <h2>Limitation de responsabilite</h2>
             <p>
-                MONATECH Studio s\'efforce de fournir des informations exactes et a jour, mais ne peut garantir l\'absence totale d\'erreurs,
-                d\'omissions ou d\'indisponibilites. L\'utilisation du site se fait sous la responsabilite de l\'utilisateur.
-                MONATECH Studio ne pourra etre tenu responsable des dommages directs ou indirects lies a l\'utilisation du site.
+                Je fais de mon mieux pour garder les informations de ce site claires et a jour.
+                Si une erreur ou une indisponibilite se glisse, je ne peux pas etre tenue responsable des consequences liees a son utilisation.
             </p>
 
             <h2>Liens externes</h2>
             <p>
-                Le site peut contenir des liens vers des sites tiers. MONATECH Studio n\'est pas responsable du contenu
-                ou des pratiques de ces sites externes.
+                Ce site peut contenir des liens vers d'autres sites.
+                Je ne gere pas leur contenu ni leur fonctionnement.
             </p>
         </div>
     </section>

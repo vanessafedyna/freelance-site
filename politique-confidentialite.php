@@ -14,65 +14,60 @@ include __DIR__ . '/includes/header.php';
             <p class="hero-badge">Informations legales</p>
             <h1>Politique de confidentialite</h1>
             <p>
-                MONATECH Studio accorde une importance particuliere a la protection des renseignements personnels.
-                Cette politique explique quelles donnees sont collecte es, pourquoi elles sont utilisees et comment vous pouvez exercer vos droits,
-                conformement a la Loi 25 du Quebec et a la LPRPDE au Canada.
+                J'explique ici quelles donnees je collecte, pourquoi je les utilise et comment vous pouvez me demander des precisions.
             </p>
 
             <h2>Responsable du traitement</h2>
             <p>
-                Le responsable du traitement des renseignements personnels est MONATECH Studio.
-                Pour toute question ou demande relative a la protection des renseignements personnels, vous pouvez ecrire a
+                Je suis responsable du traitement de vos renseignements personnels.
+                Si vous avez une question, vous pouvez m'ecrire a
                 <a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a>.
             </p>
 
             <h2>Donnees collecte es</h2>
-            <p>Les formulaires du site peuvent collecter les renseignements suivants :</p>
+            <p>Je collecte seulement les informations utiles pour vous repondre ou publier un temoignage.</p>
             <ul>
-                <li>Formulaire de contact : nom, email, type de projet, budget estime et message.</li>
-                <li>Formulaire de temoignage : nom, poste ou entreprise, et temoignage soumis.</li>
+                <li>Nom et email.</li>
+                <li>Informations sur votre projet et votre message.</li>
+                <li>Nom, poste et temoignage si vous m'envoyez un avis.</li>
             </ul>
 
             <h2>Finalites du traitement</h2>
             <ul>
-                <li>Repondre aux demandes envoyees via le formulaire de contact.</li>
-                <li>Assurer le suivi des demandes commerciales et preparer une reponse adaptee.</li>
-                <li>Recevoir, examiner et publier uniquement les temoignages approuves sur le site.</li>
-                <li>Assurer la securite technique et administrative du site.</li>
+                <li>Vous repondre apres une demande de contact.</li>
+                <li>Suivre un echange en cours autour de votre projet.</li>
+                <li>Recevoir et publier les temoignages que je valide.</li>
             </ul>
 
             <h2>Duree de conservation</h2>
             <p>
-                Les demandes de contact sont conservees pendant la duree necessaire au traitement de la demande et au suivi commercial raisonnable,
-                puis supprimees ou archivees de facon securitaire lorsqu\'elles ne sont plus necessaires.
-                Les temoignages sont conserves tant qu\'ils demeurent utiles a la presentation des services de MONATECH Studio,
-                ou jusqu\'a une demande de retrait legitime de la personne concernee.
+                Je garde vos messages le temps de traiter votre demande et d'assurer un suivi raisonnable.
+                Je garde les temoignages tant qu'ils restent utiles sur le site, ou jusqu'a votre demande de retrait.
             </p>
 
             <h2>Partage des renseignements</h2>
             <p>
-                Les renseignements personnels ne sont pas vendus. Ils peuvent etre accessibles a des prestataires techniques
-                strictement dans la mesure necessaire a l\'hebergement, a la maintenance ou a la securite du site.
+                Je ne vends pas vos renseignements personnels.
+                Ils peuvent etre accessibles a des outils techniques seulement si c'est necessaire pour heberger ou maintenir le site.
             </p>
 
             <h2>Vos droits</h2>
-            <p>Selon la legislation applicable, vous pouvez demander :</p>
+            <p>Vous pouvez me demander :</p>
             <ul>
-                <li>L\'acces aux renseignements personnels vous concernant.</li>
-                <li>La rectification de renseignements inexacts ou incomplets.</li>
-                <li>La suppression de renseignements lorsque leur conservation n\'est plus justifiee.</li>
-                <li>Le retrait d\'un consentement lorsque ce retrait est applicable.</li>
+                <li>L'acces aux donnees que je conserve sur vous.</li>
+                <li>La correction d'une information inexacte.</li>
+                <li>La suppression de vos donnees quand c'est possible.</li>
             </ul>
 
             <h2>Exercice des droits</h2>
             <p>
-                Pour exercer vos droits ou poser une question sur cette politique, contactez MONATECH Studio a
+                Pour exercer vos droits ou poser une question, contactez-moi a
                 <a href="mailto:vanessa@monatech.ca">vanessa@monatech.ca</a>.
             </p>
 
             <h2>Mise a jour</h2>
             <p>
-                Cette politique peut etre mise a jour afin de refleter l\'evolution du site, des obligations legales ou des pratiques internes.
+                Cette page peut etre mise a jour si le site ou ma facon de traiter les donnees change.
             </p>
         </div>
     </section>

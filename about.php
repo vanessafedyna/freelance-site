@@ -12,11 +12,9 @@ include('includes/header.php');
 <main class="about-page">
     <section class="section about-hero">
         <div class="container about-hero-inner">
-            <p class="hero-badge">À propos de MONATECH</p>
-            <h1>Je conçois des sites web clairs, utiles et adaptés aux petites entreprises.</h1>
-            <p class="about-intro">
-                Mon objectif est de créer des solutions web claires, professionnelles et faciles à faire évoluer, avec une approche claire du besoin jusqu’à la mise en ligne.
-            </p>
+            <p class="hero-badge">À propos de moi</p>
+            <h1>Je crée des sites web clairs pour les petites entreprises.</h1>
+            <p class="about-intro">Je conçois des sites web clairs, pro et simples à faire évoluer.</p>
             <a href="contact.php" class="btn btn-primary">
                 <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>
@@ -36,26 +34,22 @@ include('includes/header.php');
                 >
                 <div class="about-photo-caption">
                     <p class="about-name">Vanessa Fedyna</p>
-                    <p class="about-title-tag">Fondatrice · MONATECH Studio</p>
+                    <p class="about-title-tag">Développeuse web freelance</p>
                 </div>
             </div>
 
             <div class="about-profile-content" data-reveal>
-                <h2>Un profil orienté web, clarté et solutions concrètes</h2>
-                <p>
-                    Je travaille principalement sur des projets de création de site web pour petites entreprises, avec une attention particulière à la lisibilité, à la structure du contenu et à la facilité d’utilisation.
-                </p>
-                <p>
-                    J’utilise des technologies comme PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des sites fiables, clairs et évolutifs. Ma formation en cybersécurité me permet aussi d’aborder les projets avec une attention particulière à la sécurité et à la solidité de la base.
-                </p>
+                <h2>Ce que j'apporte</h2>
+                <p>Je crée des sites web clairs pour les petites entreprises, avec un vrai souci de lisibilité et de structure.</p>
+                <p>Je travaille avec PHP, Laravel, HTML, CSS, JavaScript et MySQL pour construire des bases propres et fiables.</p>
+                <p>Ma formation en cybersécurité m'aide aussi à penser des sites plus solides dès le départ.</p>
                 <a href="https://www.linkedin.com/in/vanessafedyna/" target="_blank" rel="noopener noreferrer" class="linkedin-link">Voir mon profil LinkedIn</a>
 
                 <h3>Ce que ça signifie pour vous</h3>
                 <ul class="tech-stack">
-                    <li>Sites évolutifs — Construits avec des technologies robustes qui permettent de faire grandir votre site sans tout refaire.</li>
-                    <li>Données sécurisées — Vos informations clients sont stockées de manière structurée et protégée.</li>
-                    <li>Sécurité intégrée — Formation en cybersécurité : votre site est protégé contre les vulnérabilités courantes dès la mise en ligne.</li>
-                    <li>Code propre et maintenable — Si vous changez de prestataire un jour, votre site reste facile à reprendre.</li>
+                    <li>Sites évolutifs — Une base propre qui peut grandir avec votre activité.</li>
+                    <li>Sécurité intégrée — Je pense aussi la solidité du site dès le départ.</li>
+                    <li>Code propre et maintenable — Votre site reste simple à reprendre et à faire évoluer.</li>
                 </ul>
 
                 <div class="about-profile-side" aria-label="Positionnement professionnel">
@@ -72,26 +66,26 @@ include('includes/header.php');
 
     <section class="section about-mission">
         <div class="container">
-            <h2 class="section-title">Mission et approche</h2>
+            <h2 class="section-title">Comment je travaille</h2>
             <p class="section-intro">
                 Une manière de travailler claire, directe et adaptée aux besoins réels d’une petite entreprise.
             </p>
             <div class="mission-list">
                 <article class="mission-item">
                     <h3>Comprendre le besoin</h3>
-                    <p>Je prends le temps de comprendre votre activité, vos priorités et ce que votre site doit réellement apporter.</p>
+                    <p>Je commence par comprendre ce que votre site doit vraiment apporter.</p>
                 </article>
                 <article class="mission-item">
                     <h3>Proposer une solution claire</h3>
-                    <p>Je privilégie des choix adaptés à votre contexte, à votre budget et à votre niveau de maturité digitale.</p>
+                    <p>Je propose une solution simple, adaptée à votre contexte et à votre budget.</p>
                 </article>
                 <article class="mission-item">
                     <h3>Concevoir avec clarté</h3>
-                    <p>Je construis des pages lisibles, structurées et pensées pour être utiles à vos visiteurs.</p>
+                    <p>Je construis des pages claires, pensées pour être utiles.</p>
                 </article>
                 <article class="mission-item">
                     <h3>Avancer avec méthode</h3>
-                    <p>Le projet progresse avec des étapes nettes, des échanges directs et des décisions expliquées.</p>
+                    <p>J'avance avec des étapes nettes et des échanges directs.</p>
                 </article>
             </div>
         </div>
@@ -103,19 +97,19 @@ include('includes/header.php');
             <div class="about-strength-grid">
                 <article class="strength-card">
                     <h3>Site adapté à votre entreprise</h3>
-                    <p>Une structure pensée pour vos services, votre cible et votre marché local.</p>
+                    <p>Une structure pensée pour votre activité, votre cible et votre marché local.</p>
                 </article>
                 <article class="strength-card">
                     <h3>Image professionnelle</h3>
-                    <p>Un rendu cohérent qui renforce la crédibilité de votre activité.</p>
+                    <p>Un rendu cohérent qui renforce votre crédibilité.</p>
                 </article>
                 <article class="strength-card">
                     <h3>Communication directe</h3>
-                    <p>Des échanges directs, des choix argumentés et un cadre clair.</p>
+                    <p>Des échanges directs, sans intermédiaire ni flou.</p>
                 </article>
                 <article class="strength-card">
                     <h3>Approche orientée résultats</h3>
-                    <p>Vous travaillez avec une seule personne du début à la fin — pas un account manager qui transmet à une équipe. Votre projet, vos priorités, votre budget : je les connais tous parce que c'est moi qui livre.</p>
+                    <p>Je gère votre projet du début à la mise en ligne.</p>
                 </article>
             </div>
         </div>
@@ -123,11 +117,8 @@ include('includes/header.php');
 
     <section class="section about-final-cta">
         <div class="container cta-box about-cta-box">
-            <h2>Parlons du site web dont votre entreprise a réellement besoin.</h2>
-            <p>
-                Que vous partiez de zéro ou que vous souhaitiez clarifier un projet existant,
-                je peux vous aider à construire une solution web claire, utile et adaptée à votre activité.
-            </p>
+            <h2>Parlons de votre projet.</h2>
+            <p>Si vous avez besoin d'un site clair et utile, je peux vous aider à le construire.</p>
             <a href="contact.php" class="btn btn-primary">
                 <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>

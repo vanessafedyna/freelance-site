@@ -170,6 +170,7 @@ $navItems = [
                     <img src="<?php echo head_escape($brand_logo); ?>" alt="Logo <?php echo head_escape($site_name); ?>">
                 </span>
                 <span class="brand-text"><?php echo head_escape($site_name); ?></span>
+                <span class="brand-byline">par Vanessa Fedyna</span>
             </a>
 
             <nav id="primary-nav" class="site-nav" aria-label="Navigation principale">

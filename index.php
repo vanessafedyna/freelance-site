@@ -68,27 +68,15 @@ include __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <aside class="story-hero-aside hero-enter hero-enter-d5" data-parallax data-speed="0.05" aria-label="Enjeux clients fréquents">
-                    <div class="hero-photo-wrap">
-                        <img
-                            src="/assets/images/10032.png"
-                            alt="Vanessa Fedyna, fondatrice de MONATECH Studio"
-                            class="hero-photo"
-                            width="480"
-                            height="580"
-                            loading="eager"
-                        >
-                        <p class="hero-photo-caption">Vanessa Fedyna — Fondatrice de MONATECH</p>
-                    </div>
-                    <p class="story-panel-title">Le constat terrain</p>
-                    <ul>
-                        <li>Un site qui informe, mais ne convainc pas.</li>
-                        <li>Une image de marque qui manque de cohérence.</li>
-                        <li>Des demandes clients répétitives qui ralentissent votre équipe.</li>
-                    </ul>
-                    <p class="story-panel-note">
-                        Mon rôle : rendre votre présence en ligne plus claire, cohérente et efficace.
-                    </p>
+                <aside class="story-hero-aside hero-enter hero-enter-d5" aria-label="Illustration hero">
+                    <img
+                        src="/assets/images/hero-person-complet.png"
+                        alt="Vanessa Fedyna, développeuse web freelance à Montréal"
+                        class="hero-illustration-img"
+                        width="520"
+                        height="560"
+                        loading="eager"
+                    >
                 </aside>
             </div>
 
@@ -102,19 +90,13 @@ include __DIR__ . '/includes/header.php';
     <section id="probleme" class="story-problem">
         <div class="container">
             <div class="story-section-head" data-reveal>
-                <h2>Vous investissez en ligne, mais le message reste flou.</h2>
+                    <h2>Votre site est là, mais il n'aide pas assez.</h2>
             </div>
 
             <div class="problem-layout">
                 <article class="problem-editorial" data-reveal>
-                    <p>
-                        Votre entreprise a peut-être déjà un site en ligne.
-                        Mais si votre offre est mal expliquée, vos visiteurs hésitent et quittent sans vous contacter.
-                    </p>
-                    <p>
-                        Résultat : vous perdez des opportunités, vous répétez souvent les mêmes explications,
-                        et votre présence en ligne ne soutient pas vraiment votre développement.
-                    </p>
+                    <p>Vous avez peut-être déjà un site, mais si votre offre reste floue, vos visiteurs repartent sans vous écrire.</p>
+                    <p>Au final, vous perdez des demandes et vous répétez toujours les mêmes explications.</p>
                 </article>
 
                 <aside class="problem-frictions" data-reveal aria-label="Points de friction">
@@ -132,25 +114,25 @@ include __DIR__ . '/includes/header.php';
     <section id="transformation" class="story-transformation">
         <div class="container">
             <div class="story-section-head" data-reveal>
-                <h2>Passer d'une présence dispersée à une expérience qui guide naturellement.</h2>
+                <h2>Avant, c'est flou. Après, c'est clair.</h2>
             </div>
 
             <div class="transformation-track">
                 <article class="transformation-state before" data-reveal>
                     <p class="state-label">Avant</p>
                     <ul>
-                        <li>Offre difficile à comprendre</li>
+                        <li>Offre floue</li>
                         <li>Site peu rassurant</li>
-                        <li>Trop de réponses à refaire à la main</li>
+                        <li>Questions répétitives</li>
                     </ul>
                 </article>
 
                 <article class="transformation-state after" data-reveal>
                     <p class="state-label">Après</p>
                     <ul>
-                        <li>Offre plus claire dès les premières secondes</li>
-                        <li>Site plus professionnel et rassurant</li>
-                        <li>Suivi plus fluide au quotidien</li>
+                        <li>Offre claire</li>
+                        <li>Site plus rassurant</li>
+                        <li>Suivi plus simple</li>
                     </ul>
                 </article>
             </div>
@@ -160,19 +142,17 @@ include __DIR__ . '/includes/header.php';
     <section id="solution" class="story-solution">
         <div class="container">
             <div class="story-section-head" data-reveal>
-                <h2>Une base claire : votre site web, puis les bons compléments.</h2>
+                <h2>Une base solide, puis ce dont vous avez vraiment besoin.</h2>
             </div>
 
             <div class="systems-flow">
                 <article class="system-block" data-reveal>
                     <p class="system-index">Système 01</p>
                     <h3>Création de site web</h3>
-                    <p>
-                        Un site clair, rapide et professionnel pour présenter votre offre, rassurer vos visiteurs et générer plus de demandes.
-                    </p>
+                    <p>Je crée un site clair et rapide qui présente bien votre offre et facilite le contact.</p>
                     <ul>
-                        <li>Structure pensée pour la prise de contact</li>
-                        <li>Pages essentielles : accueil, offre, contact</li>
+                        <li>Accueil, offre, contact</li>
+                        <li>Structure pensée pour convertir</li>
                         <li>Version responsive et rapide</li>
                     </ul>
                 </article>
@@ -180,24 +160,20 @@ include __DIR__ . '/includes/header.php';
                 <article class="system-block" data-reveal>
                     <p class="system-index">Système 02</p>
                     <h3>Identité visuelle essentielle</h3>
-                    <p>
-                        Une identité visuelle essentielle et cohérente pour renforcer l’image de votre entreprise.
-                    </p>
+                    <p>Je crée une base visuelle simple pour rendre votre image plus claire et cohérente.</p>
                     <ul>
-                        <li>Logo clair et lisible</li>
-                        <li>Palette et repères visuels</li>
-                        <li>Cohérence entre site et supports</li>
+                        <li>Logo lisible</li>
+                        <li>Palette simple</li>
+                        <li>Repères visuels cohérents</li>
                     </ul>
                 </article>
 
                 <article class="system-block" data-reveal>
                     <p class="system-index">Système 03</p>
                     <h3>Automatisations efficaces</h3>
-                    <p>
-                        Des automatisations utiles pour gagner du temps sur les demandes récurrentes et améliorer le suivi.
-                    </p>
+                    <p>J'automatise les demandes fréquentes pour vous faire gagner du temps et fluidifier le suivi.</p>
                     <ul>
-                        <li>Réponses automatiques de base</li>
+                        <li>Réponses automatiques</li>
                         <li>Préqualification des demandes</li>
                         <li>Orientation vers le bon canal</li>
                     </ul>
@@ -209,11 +185,8 @@ include __DIR__ . '/includes/header.php';
     <section id="resultats" class="story-results">
         <div class="container results-layout">
             <div class="results-copy" data-reveal>
-                <h2>Des bénéfices visibles pour votre activité, pas juste un beau design.</h2>
-                <p>
-                    L’objectif n’est pas seulement d’avoir un site plus joli, mais un site plus utile :
-                    mieux expliquer votre offre, faciliter la prise de contact et vous faire gagner du temps.
-                </p>
+                <h2>Un site plus utile, tout simplement.</h2>
+                <p>Le but n'est pas d'avoir un site plus joli. Le but, c'est un site plus clair, plus rassurant et plus simple à faire vivre.</p>
             </div>
 
             <div class="results-board">
@@ -391,8 +364,8 @@ include __DIR__ . '/includes/header.php';
     <section id="contact" class="story-final-cta">
         <div class="container">
             <div class="story-cta-box" data-reveal>
-                <h2>Parlons de votre site web et de ce qu’il peut vraiment apporter à votre entreprise.</h2>
-                <p>Décrivez votre activité en quelques lignes — je vous réponds avec une proposition claire sous 48h.</p>
+                <h2>Parlons de votre futur site.</h2>
+                <p>Expliquez-moi votre activité et je vous réponds avec une proposition claire sous 48h.</p>
                 <a href="/contact.php" class="btn btn-primary">
                     <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
                 </a>

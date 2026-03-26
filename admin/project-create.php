@@ -108,10 +108,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         $errors['display_order'] = 'L’ordre d’affichage doit être supérieur ou égal à 0.';
     }
 
-    if ($values['link_url'] !== '' && $values['link_label'] === '') {
-        $values['link_label'] = 'Parler d’un projet similaire';
-    }
-
     if (empty($errors)) {
         try {
             $pdo = get_db_connection();
@@ -420,13 +416,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                     </div>
 
                     <div class="field full">
-                        <label for="link_url">URL du lien</label>
-                        <input id="link_url" name="link_url" type="text" value="<?php echo h($values['link_url']); ?>">
+                        <label for="link_url">URL du projet (site en ligne)</label>
+                        <input id="link_url" name="link_url" type="url" placeholder="https://exemple.com" value="<?php echo h($values['link_url']); ?>">
                     </div>
 
                     <div class="field full">
-                        <label for="link_label">Libellé du lien</label>
-                        <input id="link_label" name="link_label" type="text" value="<?php echo h($values['link_label']); ?>">
+                        <label for="link_label">Texte du bouton (laisser vide = &quot;Voir le projet&quot;)</label>
+                        <input id="link_label" name="link_label" type="text" placeholder="Voir le projet" value="<?php echo h($values['link_label']); ?>">
                     </div>
 
                     <div class="field">

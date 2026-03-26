@@ -30,6 +30,7 @@ $footer_brand_logo = isset($brand_logo)
                             <img src="<?php echo footer_escape($footer_brand_logo); ?>" alt="Logo <?php echo footer_escape($footer_site_name); ?>">
                         </span>
                         <span class="footer-brand-text"><?php echo footer_escape($footer_site_name); ?></span>
+                        <span class="footer-byline">par Vanessa Fedyna</span>
                     </a>
                     <p class="footer-tagline">
                         Développeuse web freelance à Montréal. Sites web, identité visuelle et automatisations pour les petites entreprises au Québec.

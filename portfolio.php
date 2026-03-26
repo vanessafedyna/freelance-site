@@ -32,17 +32,15 @@ include('includes/header.php');
             <div class="portfolio-hero-layout">
                 <div class="portfolio-hero-copy" data-reveal>
                     <p class="hero-badge">Projets et réalisations</p>
-                    <h1>Une sélection de projets web et d’exemples concrets.</h1>
-                    <p class="portfolio-intro">
-                        Cette sélection présente des projets clients, des démos et des concepts montrant ma manière de concevoir des sites web clairs, une identité visuelle essentielle et des automatisations utiles.
-                    </p>
+                    <h1>Des projets concrets, pas des promesses.</h1>
+                    <p class="portfolio-intro">Vous trouverez ici des projets clients, des démos et des concepts qui montrent comment je travaille.</p>
                     <a href="contact.php" class="btn btn-primary">
                         <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
                     </a>
                 </div>
 
                 <aside class="portfolio-hero-aside" data-reveal aria-label="Valeur apportée">
-                    <h2>Ce que cette sélection met en avant</h2>
+                    <h2>Quelques projets récents.</h2>
                     <ul class="portfolio-highlight-list">
                         <li>Des sites pensés pour mieux présenter une offre.</li>
                         <li>Une image plus claire et plus cohérente.</li>
@@ -121,11 +119,9 @@ include('includes/header.php');
                             $resultText = 'Projet en cours de finalisation.';
                         }
 
-                        if ($linkUrl === '') {
-                            $linkUrl = 'contact.php';
-                            $linkLabel = 'Parler d’un projet similaire';
-                        } elseif ($linkLabel === '') {
-                            $linkLabel = 'Parler d’un projet similaire';
+                        $hasExternalLink = $linkUrl !== '';
+                        if ($linkLabel === '') {
+                            $linkLabel = 'Voir le projet';
                         }
                         ?>
                         <article class="project-card project-hover-card" data-reveal>
@@ -145,7 +141,12 @@ include('includes/header.php');
                             <p><?php echo htmlspecialchars($shortDescription, ENT_QUOTES, 'UTF-8'); ?></p>
                             <p class="project-result">Résultat : <?php echo htmlspecialchars($resultText, ENT_QUOTES, 'UTF-8'); ?></p>
                             <div class="project-footer">
-                                <a href="<?php echo htmlspecialchars($linkUrl, ENT_QUOTES, 'UTF-8'); ?>" class="project-link project-hover-link"><?php echo htmlspecialchars($linkLabel, ENT_QUOTES, 'UTF-8'); ?></a>
+                                <?php if ($hasExternalLink): ?>
+                                    <a href="<?php echo htmlspecialchars($linkUrl, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-primary btn-sm project-view-link" target="_blank" rel="noopener noreferrer">
+                                        <span class="button-outer"><span class="button-inner"><span class="button-text"><?php echo htmlspecialchars($linkLabel, ENT_QUOTES, 'UTF-8'); ?> ↗</span></span></span>
+                                    </a>
+                                <?php endif; ?>
+                                <a href="contact.php" class="project-link project-hover-link">Parler d'un projet similaire</a>
                             </div>
                         </article>
                     <?php endforeach; ?>
@@ -156,31 +157,25 @@ include('includes/header.php');
 
     <section class="section portfolio-values">
         <div class="container">
-            <h2 class="section-title" data-reveal>Une approche orientée résultats</h2>
+            <h2 class="section-title" data-reveal>Ma façon de travailler</h2>
             <div class="portfolio-values-layout">
                 <div class="portfolio-values-editorial" data-reveal>
-                    <p>
-                        Chaque mandat débute par une lecture précise de vos objectifs : visibilité,
-                        crédibilité et génération de contacts.
-                    </p>
-                    <p>
-                        Le design n’est pas décoratif. Il sert la clarté, la confiance et la prise de décision.
-                        Le résultat final reste facile à faire évoluer dans le temps.
-                    </p>
+                    <p>Je pars toujours de vos objectifs : être plus clair, plus crédible et plus facile à contacter.</p>
+                    <p>Le design sert à faire comprendre, rassurer et donner envie d'avancer.</p>
                 </div>
 
                 <div class="portfolio-values-grid">
                     <article class="value-card" data-reveal>
                         <h3>Approche sur mesure</h3>
-                        <p>Chaque projet est construit selon vos objectifs commerciaux et votre réalité terrain.</p>
+                        <p>Chaque projet part de votre réalité, pas d'un modèle générique.</p>
                     </article>
                     <article class="value-card" data-reveal>
                         <h3>Design professionnel</h3>
-                        <p>Des interfaces modernes et claires pour renforcer votre crédibilité dès la première visite.</p>
+                        <p>Je cherche un rendu clair, pro et facile à comprendre dès la première visite.</p>
                     </article>
                     <article class="value-card" data-reveal>
                         <h3>Solutions adaptées aux petites entreprises</h3>
-                        <p>Des choix pragmatiques, faciles à maintenir et alignés avec votre budget.</p>
+                        <p>Je privilégie des choix simples à maintenir et adaptés à votre budget.</p>
                     </article>
                 </div>
             </div>
@@ -189,11 +184,8 @@ include('includes/header.php');
 
     <section class="section portfolio-final-cta">
         <div class="container cta-box portfolio-cta-shell" data-reveal>
-            <h2>Parlons de votre futur site web ou d’un projet similaire.</h2>
-            <p>
-                Que vous ayez besoin d’un site web, d’une identité visuelle essentielle ou d’une automatisation utile,
-                je peux vous aider à construire une solution claire et adaptée à votre activité.
-            </p>
+            <h2>On parle du vôtre ?</h2>
+            <p>Si vous avez un projet en tête, je peux vous aider à le rendre clair, utile et crédible.</p>
             <a href="contact.php" class="btn btn-primary">
                 <span class="button-outer"><span class="button-inner"><span class="button-text">Demander un devis gratuit</span></span></span>
             </a>
